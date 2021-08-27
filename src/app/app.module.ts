@@ -1,7 +1,7 @@
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { NgModule } from "@angular/core";
+import { Injectable, NgModule } from "@angular/core";
 import { FormsModule } from "@angular/forms";
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { RouterModule } from "@angular/router";
 import { ToastrModule } from 'ngx-toastr';
 
@@ -13,6 +13,22 @@ import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 
 import { AppRoutingModule } from "./app-routing.module";
 import { ComponentsModule } from "./components/components.module";
+import { EspacesHomeComponent } from './pages/espaces-home/espaces-home.component';
+import { AppService } from "./app.service";
+import { LoginComponent } from './pages/login/login.component';
+
+
+@Injectable()
+export class XhrInterceptor implements HttpInterceptor{
+
+  intercept(req: HttpRequest<any>, next: HttpHandler) {
+    const xhr=req.clone({
+      headers: req.headers.set('X-Requested-With', 'XMLHttpRequest')
+    })
+    return next.handle(xhr);
+  }
+  
+}
 
 @NgModule({
   imports: [
@@ -25,8 +41,11 @@ import { ComponentsModule } from "./components/components.module";
     AppRoutingModule,
     ToastrModule.forRoot()
   ],
-  declarations: [AppComponent, AdminLayoutComponent, AuthLayoutComponent],
-  providers: [],
+  declarations: [AppComponent, AdminLayoutComponent, AuthLayoutComponent, EspacesHomeComponent, LoginComponent],
+  providers: [
+    AppService,
+    {provide: HTTP_INTERCEPTORS,useClass: XhrInterceptor,multi:true} 
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

@@ -16,6 +16,13 @@ export const ROUTES: RouteInfo[] = [
     class: ""
   },
   {
+    path: "/user-home",
+    title: "Home",
+    rtlTitle: "",
+    icon: "icon-atom",
+    class: ""
+  },
+  {
     path: "/icons",
     title: "Icons",
     rtlTitle: "الرموز",
@@ -66,6 +73,7 @@ export const ROUTES: RouteInfo[] = [
 })
 export class SidebarComponent implements OnInit {
   menuItems: any[];
+  isUser = true;
 
   constructor() {}
 

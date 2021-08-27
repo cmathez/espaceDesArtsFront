@@ -3,6 +3,8 @@ import { ROUTES } from "../sidebar/sidebar.component";
 import { Location } from "@angular/common";
 import { Router } from "@angular/router";
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import { HttpClient } from "@angular/common/http";
+import { AppService } from "src/app/app.service";
 
 @Component({
   selector: "app-navbar",
@@ -22,6 +24,8 @@ export class NavbarComponent implements OnInit, OnDestroy {
   closeResult: string;
 
   constructor(
+    private appService: AppService,
+    private httpClient: HttpClient,
     location: Location,
     private element: ElementRef,
     private router: Router,
@@ -177,6 +181,13 @@ export class NavbarComponent implements OnInit, OnDestroy {
     } else {
       return  `with: ${reason}`;
     }
+  }
+  logout(){
+    this.httpClient.post('http://localhost:8080/logout', {}).subscribe(
+      () => {this.appService.authenticated=false;
+      this.router.navigateByUrl('/login');
+      }
+    )
   }
   ngOnDestroy(){
      window.removeEventListener("resize", this.updateColor);

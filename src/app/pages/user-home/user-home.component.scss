@@ -1,0 +1,44 @@
+.block-card {
+    padding-top: 50px;
+    display: flex;
+}
+
+.card {
+    display: flex;
+    height: 390px;
+    background-color: #171b1f;
+    border-radius: 10px;
+    box-shadow: -1rem 0 1.5rem #2e3033;
+    transition: 0.4s ease-out;
+    position: relative;
+    left: 0px;
+}
+
+.card:not(:first-child) {
+    margin-left: 50px;
+}
+
+.card:hover {
+    transform: translateY(-20px);
+    transition: 0.4s ease-out;
+}
+
+.title {
+    color: #ea9215;
+    font-weight: 300px;
+    position: absolute;
+    left: 20px;
+    top: 15px;
+}
+
+.contenu {
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 20%;
+}
+
+.contenu button {
+    background-color: transparent;
+    border: transparent;
+    color: whitesmoke;
+}
