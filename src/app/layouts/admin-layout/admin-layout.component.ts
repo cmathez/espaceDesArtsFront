@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { AppService } from "src/app/app.service";
 
 @Component({
   selector: "app-admin-layout",
@@ -7,9 +8,9 @@ import { Component, OnInit } from "@angular/core";
 })
 export class AdminLayoutComponent implements OnInit {
   public sidebarColor: string = "red";
+  role:string;
 
-
-  constructor() {}
+  constructor(private appService : AppService) {}
   changeSidebarColor(color){
     var sidebar = document.getElementsByClassName('sidebar')[0];
     var mainPanel = document.getElementsByClassName('main-panel')[0];
@@ -32,5 +33,7 @@ export class AdminLayoutComponent implements OnInit {
       body.classList.remove('white-content');
     }
   }
-  ngOnInit() {}
+  ngOnInit() {
+    this.role = this.appService.role;
+  }
 }

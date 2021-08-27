@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Utilisateur } from './models/utilisateur';
 import { LoginComponent } from './pages/login/login.component';
+import { UtilisateurService } from './service/utilisateur.service';
 
 
 
@@ -13,9 +14,10 @@ import { LoginComponent } from './pages/login/login.component';
 export class AppService {
 
   authenticated = false;
-  currentUser = Utilisateur;
+  currentUsername : string = '';
+  role : string ='';
 
-  constructor(private httpClient:HttpClient) { }
+  constructor(private httpClient:HttpClient, private utilisateurService: UtilisateurService) { }
 
   authenticate(credentials, callback){
 
@@ -26,7 +28,10 @@ export class AppService {
     );
     this.httpClient.get('http://localhost:8080/login/user', {headers:headers}).subscribe( response =>{
       if(response['username']){
-        let idUser = response['idUtilisateur'];
+        this.currentUsername = response['username'];
+        console.log(this.currentUsername);
+        this.role = response['roles'][0]['libelle']
+        console.log(this.role);
         
       
       this.authenticated = true;

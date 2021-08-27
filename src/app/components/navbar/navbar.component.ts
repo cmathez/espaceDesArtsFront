@@ -186,6 +186,8 @@ export class NavbarComponent implements OnInit, OnDestroy {
     this.httpClient.post('http://localhost:8080/logout', {}).subscribe(
       () => {this.appService.authenticated=false;
       this.router.navigateByUrl('/login');
+      this.appService.currentUsername = '';
+      this.appService.role='';
       }
     )
   }

@@ -1,4 +1,5 @@
 export class Utilisateur {
+    idUtilisateur:number;
     dateNaissance:string="";
     mail:string="";
     nom:string="";

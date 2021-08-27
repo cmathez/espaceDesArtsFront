@@ -1,5 +1,5 @@
 <div class="wrapper">
-    <div class="sidebar">
+    <div class="sidebar" *ngIf="role!='admin'">
         <app-sidebar></app-sidebar>
     </div>
     <div class="main-panel">
