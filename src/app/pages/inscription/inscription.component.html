@@ -1,0 +1,18 @@
+<form>
+    <div>
+        <label for="username">Nom d'utilisateur :</label><br/><input type="text" name="username" [(ngModel)]="utilisateur.username" />
+    </div>
+    <div>
+        <label for="nom">Nom :</label><br/><input type="text" name="nom" [(ngModel)]="utilisateur.nom" /></div>
+    <div>
+        <label for="prenom">Prénom :</label><br/><input type="text" name="prenom" [(ngModel)]="utilisateur.prenom" /></div>
+    <div>
+        <label for="mail">Adresse e-mail :</label><br/><input type="text" name="mail" [(ngModel)]="utilisateur.mail" /></div>
+    <div>
+        <label for="password">Mot de passe :</label><br/><input type="text" name="password" [(ngModel)]="utilisateur.password" /></div>
+    <div>
+        <label for="dateNaissance">Date de naissance :</label><br/><input type="date" name="dateNaissance" [(ngModel)]="utilisateur.dateNaissance" /></div>
+    <div><label for="fileUForm">Image de profil :</label><br/>
+        <input type="file" name="fileUForm" (change)="selectFile($event)" /></div>
+    <button (click)="saveUtilisateur()">S'inscrire</button>
+</form>

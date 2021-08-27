@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Utilisateur } from './models/utilisateur';
 import { LoginComponent } from './pages/login/login.component';
 
 
@@ -12,6 +13,7 @@ import { LoginComponent } from './pages/login/login.component';
 export class AppService {
 
   authenticated = false;
+  currentUser = Utilisateur;
 
   constructor(private httpClient:HttpClient) { }
 
@@ -24,6 +26,9 @@ export class AppService {
     );
     this.httpClient.get('http://localhost:8080/login/user', {headers:headers}).subscribe( response =>{
       if(response['username']){
+        let idUser = response['idUtilisateur'];
+        
+      
       this.authenticated = true;
       }
       else{
