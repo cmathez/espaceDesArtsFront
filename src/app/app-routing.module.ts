@@ -7,9 +7,40 @@ import { AdminLayoutComponent } from "./layouts/admin-layout/admin-layout.compon
 import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
 import { LoginComponent } from "./pages/login/login.component";
 import { InscriptionComponent } from "./pages/inscription/inscription.component";
+import { EspaceExpositionComponent } from "./pages/espace-exposition/espace-exposition.component";
+import { EditEspaceExpositionComponent } from "./pages/edit-espace-exposition/edit-espace-exposition.component";
+import { ReservationEspaceComponent } from "./pages/reservation-espace/reservation-espace.component";
+import { EvenementComponent } from "./pages/evenement/evenement.component";
 
 const routes: Routes = [
-
+  {
+    path: 'evenement',
+    component: EvenementComponent,
+    data: {
+      title: 'evenement'
+    }
+  },
+  {
+    path: 'reservationEspace',
+    component: ReservationEspaceComponent,
+    data: {
+      title: 'reservationEspace'
+    }
+  },
+  {
+    path: 'editEspaceExposition',
+    component: EditEspaceExpositionComponent,
+    data: {
+      title: 'editEspaceExposition'
+    }
+  },
+  {
+    path: 'espaceExposition',
+    component: EspaceExpositionComponent,
+    data: {
+      title: 'espaceExposition'
+    }
+  },
   {
     path: "",
     redirectTo: "dashboard",
