@@ -10,6 +10,7 @@ export class AdminLayoutComponent implements OnInit {
   public sidebarColor: string = "red";
   role:string;
 
+
   constructor(private appService : AppService) {}
   changeSidebarColor(color){
     var sidebar = document.getElementsByClassName('sidebar')[0];
@@ -34,6 +35,9 @@ export class AdminLayoutComponent implements OnInit {
     }
   }
   ngOnInit() {
-    this.role = this.appService.role;
+    let currentUser = JSON.parse(sessionStorage.getItem('currentUser'));
+    console.log(currentUser);
+    console.log(currentUser['roles'])
+    this.role = currentUser["roles"][0]['libelle'];
   }
 }
