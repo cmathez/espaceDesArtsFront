@@ -6,6 +6,7 @@ declare interface RouteInfo {
   rtlTitle: string;
   icon: string;
   class: string;
+  condition : string;
 }
 export const ROUTES: RouteInfo[] = [
   {
@@ -13,34 +14,33 @@ export const ROUTES: RouteInfo[] = [
     title: "Dashboard",
     rtlTitle: "لوحة القيادة",
     icon: "icon-chart-pie-36",
-    class: ""
+    class: "",
+    condition: "admin"
   },
-  {
-    path: "/user-home",
-    title: "Home",
-    rtlTitle: "",
-    icon: "icon-atom",
-    class: ""
-  },
+  
   {
     path: "/icons",
     title: "Icons",
     rtlTitle: "الرموز",
     icon: "icon-atom",
-    class: ""
+    class: "",
+    condition: "proprio"
   },
   {
     path: "/maps",
     title: "Maps",
     rtlTitle: "خرائط",
     icon: "icon-pin",
-    class: "" },
+    class: "",
+    condition: ""
+  },
   {
     path: "/notifications",
     title: "Notifications",
     rtlTitle: "إخطارات",
     icon: "icon-bell-55",
-    class: ""
+    class: "",
+    condition: ""
   },
 
   {
@@ -48,21 +48,24 @@ export const ROUTES: RouteInfo[] = [
     title: "User Profile",
     rtlTitle: "ملف تعريفي للمستخدم",
     icon: "icon-single-02",
-    class: ""
+    class: "",
+    condition: ""
   },
   {
     path: "/tables",
     title: "Table List",
     rtlTitle: "قائمة الجدول",
     icon: "icon-puzzle-10",
-    class: ""
+    class: "",
+    condition: ""
   },
   {
     path: "/typography",
     title: "Typography",
     rtlTitle: "طباعة",
     icon: "icon-align-center",
-    class: ""
+    class: "",
+    condition: "admin"
   }
 ];
 
@@ -74,10 +77,13 @@ export const ROUTES: RouteInfo[] = [
 export class SidebarComponent implements OnInit {
   menuItems: any[];
   isUser = true;
+  role:string;
 
   constructor() {}
 
   ngOnInit() {
+    let currentUser = JSON.parse(sessionStorage.getItem('currentUser'));
+    this.role = currentUser["roles"][0]['libelle'];
     this.menuItems = ROUTES.filter(menuItem => menuItem);
   }
   isMobileMenu() {
