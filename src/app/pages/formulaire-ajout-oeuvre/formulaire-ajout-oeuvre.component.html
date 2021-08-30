@@ -1,0 +1,26 @@
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="titre">Ajouter une oeuvre à exposer</h5>
+            </div>
+            <div class="card-body">
+                <form>
+                    <div class="form-group">
+                        <label for="nom">Nom :</label><br/><input type="text" class="form-control" name="nom" [(ngModel)]="oeuvre.nomOeuvre" />
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Description :</label><br/><textarea class="form-control" cols="40" rows="4" name="description" [(ngModel)]="oeuvre.description"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="prix">Prix :</label><br/><input class="form-control" type="number" name="prix" [(ngModel)]="oeuvre.prix" />
+                    </div>
+                    <div>
+                        <label for="fileUForm">Photo de l'oeuvre :</label><br/>
+                        <input type="file" name="fileUForm" (change)="selectFile($event)" /></div>
+                    <button class="btn btn-danger" (click)="saveOeuvre()">Ajouter</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

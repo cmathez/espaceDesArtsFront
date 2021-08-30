@@ -1,0 +1,33 @@
+<div class=" content">
+    <div class=" row">
+        <div class=" col-md-12">
+            <div class=" card card-plain">
+                <div class=" card-header">
+                    <h4 class=" card-title">Liste réclamations</h4>
+                </div>
+                <div class=" card-body">
+                    <div class=" table-responsive">
+                        <table class=" table tablesorter" id="">
+                            <thead class=" text-primary">
+                                <tr>
+                                    <th>Motif</th>
+                                    <th>Date émission</th>
+                                    <th>Oeuvre</th>
+                                    <th class=" text-center">Supprimer</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let r of reclamations">
+                                    <td>{{r.motif}}</td>
+                                    <td>Niger</td>
+                                    <td>Oud-Turnhout</td>
+                                    <td class=" text-center">$36,738</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

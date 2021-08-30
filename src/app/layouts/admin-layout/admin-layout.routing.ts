@@ -9,6 +9,9 @@ import { TablesComponent } from "../../pages/tables/tables.component";
 import { TypographyComponent } from "../../pages/typography/typography.component";
 import { UserHomeComponent } from "../../pages/user-home/user-home.component";
 import { LoginComponent } from "src/app/pages/login/login.component";
+import { ListeReclamationsComponent } from "src/app/pages/liste-reclamations/liste-reclamations.component";
+import { ReservationDetailsComponent } from "src/app/pages/reservation-details/reservation-details.component";
+import { DetailOeuvreComponent } from "src/app/pages/detail-oeuvre/detail-oeuvre.component";
 // import { RtlComponent } from "../../pages/rtl/rtl.component";
 
 export const AdminLayoutRoutes: Routes = [
@@ -20,6 +23,9 @@ export const AdminLayoutRoutes: Routes = [
   { path: "tables", component: TablesComponent },
   { path: "typography", component: TypographyComponent },
   { path: "user-home", component: UserHomeComponent },
-  { path: "login", component: LoginComponent}
+  { path: "login", component: LoginComponent},
+  { path: "reclamation", component: ListeReclamationsComponent},
+  { path: "exposition/:id", component: ReservationDetailsComponent},
+  { path: "oeuvre/:id", component: DetailOeuvreComponent}
   // { path: "rtl", component: RtlComponent }
 ];

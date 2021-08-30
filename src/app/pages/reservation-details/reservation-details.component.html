@@ -1,0 +1,61 @@
+<div class=" content">
+    <div class="row">
+        <div class="col-7">
+            <div class="card">
+                <div class="card-header row">
+                    <h3>{{reservation.nom}} par {{ reservation.artiste.prenom }} "{{reservation.artiste.username}}" {{reservation.artiste.nom}}</h3>
+                </div>
+                <div class="card-body row">
+                    <div class="col-5"><img src="data:image/jpeg;base64,{{ reservation.artiste.photoProfil }}" height="300px" /></div>
+                    <div class="col-7">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut nec interdum felis. Ut ante mauris, sodales in commodo eget, porttitor quis justo. Morbi tristique turpis eget pretium eleifend. Curabitur auctor efficitur vulputate.
+                            Mauris ipsum tellus, pulvinar non odio vel, convallis luctus arcu. Nam quis vestibulum enim. Nulla dignissim augue non sodales fermentum. Ut a dui sem. Ut dictum pulvinar orci in rhoncus.</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut nec interdum felis. Ut ante mauris, sodales in commodo eget, porttitor quis justo. Morbi tristique turpis eget pretium eleifend. Curabitur auctor efficitur vulputate.
+                            Mauris ipsum tellus, pulvinar non odio vel, convallis luctus arcu. Nam quis vestibulum enim. Nulla dignissim augue non sodales fermentum. Ut a dui sem. Ut dictum pulvinar orci in rhoncus.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-5">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Espace d'exposition</h3>
+                </div>
+                <div class="card-body">
+                    <div><img src="data:image/jpeg;base64,{{ reservation.espaceExposition.imageEspace }}" height="200px" /></div>
+                    <p>{{reservation.espaceExposition.nomSalle}} : {{reservation.espaceExposition.adresse}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Oeuvres exposées</h3>
+                </div>
+                <div class="card-body">
+                    <table class=" table tablesorter">
+                        <thead class=" text-primary">
+                            <tr>
+                                <th>Nom</th>
+                                <th>Image</th>
+                                <th>Prix</th>
+                                <th>Détails</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let o of oeuvres">
+                                <td>{{o.nomOeuvre}}</td>
+                                <td><img src="data:image/jpeg;base64,{{ o.imageOeuvre }}" height="200px" /></td>
+                                <td>{{o.prix}}€</td>
+                                <td><a routerLink="../../oeuvre/{{o.idOeuvre}}">Details</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <app-formulaire-ajout-oeuvre [idEspaceExposition]="reservation.espaceExposition.idEspaceExposition"></app-formulaire-ajout-oeuvre>
+</div>

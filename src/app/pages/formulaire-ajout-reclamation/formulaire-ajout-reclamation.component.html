@@ -1,0 +1,14 @@
+<form>
+    <div class="form-group">
+        <label for="motif">Motif :</label><br/>
+        <select class="form-control" name="motif" [(ngModel)]="reclamation.motif">
+        <option value="Violence">Violence</option>
+        <option value="Nudité">Nudité</option>
+        <option value="Pisse-froid">Je suis un pisse-froid</option>
+    </select>
+    </div>
+    <div class="form-group"><label for="commentaire">Commentaire :</label><br/>
+        <textarea class="form-control" cols="80" rows="4" name="commentaire" [(ngModel)]="reclamation.commentaire"></textarea>
+    </div>
+    <button class="btn btn-danger" (click)="saveReclamation()">Envoyer</button>
+</form>

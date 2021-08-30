@@ -19,6 +19,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { InscriptionComponent } from './pages/inscription/inscription.component';
 
 
+
 @Injectable()
 export class XhrInterceptor implements HttpInterceptor{
 
