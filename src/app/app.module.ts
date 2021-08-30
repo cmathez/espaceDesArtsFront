@@ -21,6 +21,7 @@ import { EditEspaceExpositionComponent } from './pages/edit-espace-exposition/ed
 import { EspaceExpositionArtisteComponent } from './pages/espace-exposition-artiste/espace-exposition-artiste.component';
 
 
+
 @Injectable()
 export class XhrInterceptor implements HttpInterceptor{
 

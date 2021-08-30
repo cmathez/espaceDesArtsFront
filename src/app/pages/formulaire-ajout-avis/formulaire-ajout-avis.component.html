@@ -1,0 +1,22 @@
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class=" card-header">
+                <h5 class=" title">Laissez un commentaire...</h5>
+            </div>
+            <div class="card-body">
+                <form>
+                    <div class="form-group">
+                        <label for="titre">Titre :</label><br/>
+                        <input type="text" placeholder="Titre du commentaire" class="form-control" name="titre" [(ngModel)]="avis.titre" />
+                    </div>
+                    <div class="form-group">
+                        <label for="commentaire">Commentaire :</label><br/>
+                        <textarea placeholder="Commentaire" class="form-control" cols="40" rows="4" name="commentaire" [(ngModel)]="avis.commentaire"></textarea>
+                    </div>
+                    <button class="btn btn-fill btn-danger" (click)="saveAvis()">Poster</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,28 @@
+<div class="content">
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h1 class="titre">{{oeuvre.nomOeuvre}}</h1>
+                </div>
+                <div class="row">
+                    <div class="col-7">
+                        <img src="data:image/jpeg;base64,{{ oeuvre.imageOeuvre }}" height="500px" /></div>
+                    <div class="col-5">
+                        <p>{{oeuvre.description}}</p>
+                        <p>Prix : {{ oeuvre.prix }}€</p>
+                        <button class="btn btn-danger" (click)="toggleSignalement()">Signaler</button>
+                        <app-formulaire-ajout-reclamation *ngIf="afficheSignalement === true" [idOeuvreASignaler]="id"></app-formulaire-ajout-reclamation>
+                        <button class="btn btn-danger" (click)="deleteOeuvre()">Supprimer</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card" *ngFor="let a of avis">
+            <h5 class="titre">Par {{a.utilisateur.nom}}, le {{a.date | date:'dd/MM/yyyy à HH:mm'}}</h5>
+            <h3>{{a.titre}}</h3>
+            <p>{{a.commentaire}}</p>
+        </div>
+        <app-formulaire-ajout-avis [idOeuvreACommenter]="id"></app-formulaire-ajout-avis>
+    </div>
+</div>

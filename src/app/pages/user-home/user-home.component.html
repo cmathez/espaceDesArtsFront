@@ -1,4 +1,26 @@
+<!-- nav -->
+<!--<nav class="navbar navbar-expand navbar-dark bg-dark">
+    <div class="navbar-nav">
+        <a class="nav-item nav-link" routerLink="/">Home</a>
+        <a class="nav-item nav-link" routerLink="/espaces-home">Espaces d'Expositions</a>
+        <a class="nav-item nav-link" routerLink="/"><i class=" tim-icons icon-zoom-split"> </i></a>
+    </div>
+</nav>-->
+
 <div class="container">
+    <div class="row">
+        <h1>Expositions</h1>
+        <table class="col-md-12">
+            <tr *ngFor="let r of reservationEspaces">
+                <td>{{ r.nom }}</td>
+                <td>{{ r.dateDebut | date: 'dd/MM/yyyy'}}</td>
+                <td>{{ r.dateFin | date: 'dd/MM/yyyy'}}</td>
+                <td>{{ r.artiste.prenom }} {{ r.artiste.nom }}</td>
+                <td><a routerLink="../exposition/{{r.idReservationEspace}}">Détails</a></td>
+                <!--<a routerLink="{{r.idReservationEspace}}">Détails</a></td>-->
+            </tr>
+        </table>
+    </div>
     <div class="row">
         <div class="col align-self-center">
             <h1> Accueil Espace des Arts </h1>
@@ -42,3 +64,4 @@
             </div>
         </div>
     </div>
+</div>
