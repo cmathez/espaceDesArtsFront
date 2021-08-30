@@ -16,6 +16,7 @@ export class AppService {
   authenticated = false;
   currentUsername : string = '';
   role : string ='';
+  currentUser: Utilisateur;
 
   constructor(private httpClient:HttpClient, private utilisateurService: UtilisateurService) { }
 
@@ -32,6 +33,8 @@ export class AppService {
         console.log(this.currentUsername);
         this.role = response['roles'][0]['libelle']
         console.log(this.role);
+       sessionStorage.setItem('currentUser', JSON.stringify(response));
+
         
       
       this.authenticated = true;
