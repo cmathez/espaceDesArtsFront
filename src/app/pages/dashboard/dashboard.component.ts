@@ -20,7 +20,7 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
     let role = sessionStorage.getItem('role');
-    if(role!= 'admin'){
+    if(role == 'user'){
       this.routeur.navigateByUrl("/error404");
     }
 

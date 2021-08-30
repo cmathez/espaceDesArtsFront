@@ -10,11 +10,14 @@ import { ReservationEspaceService } from 'src/app/service/reservation-espace.ser
 export class UserHomeComponent implements OnInit {
 
   reservationEspaces:any;
+  role:string;
 
   constructor(private reservationEspaceService:ReservationEspaceService) {}
 
   ngOnInit(): void {
     this.findAll();
+    this.role = sessionStorage.getItem('role');
+
   }
 
   findAll() {

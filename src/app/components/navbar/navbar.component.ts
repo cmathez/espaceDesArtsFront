@@ -23,7 +23,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
   closeResult: string;
   currentUser = JSON.parse(sessionStorage.getItem('currentUser'));
-  photo = this.currentUser['photoProfil']
+
 
   constructor(
     private appService: AppService,

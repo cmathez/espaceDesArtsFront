@@ -17,7 +17,6 @@ export const ROUTES: RouteInfo[] = [
     class: "",
     condition: "admin"
   },
-
   
   
   {
@@ -91,8 +90,8 @@ export class SidebarComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {
-    let currentUser = JSON.parse(sessionStorage.getItem('currentUser'));
-    this.role = currentUser["roles"][0]['libelle'];
+
+    this.role = sessionStorage.getItem('role');
     this.menuItems = ROUTES.filter(menuItem => menuItem);
   }
   isMobileMenu() {
