@@ -57,5 +57,5 @@
             </div>
         </div>
     </div>
-    <app-formulaire-ajout-oeuvre [idEspaceExposition]="reservation.espaceExposition.idEspaceExposition"></app-formulaire-ajout-oeuvre>
+    <app-formulaire-ajout-oeuvre *ngIf="idCurrentUser === reservation.artiste.idUtilisateur" [idEspaceExposition]="reservation.espaceExposition.idEspaceExposition"></app-formulaire-ajout-oeuvre>
 </div>

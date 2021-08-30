@@ -2,6 +2,13 @@
     <div class="row">
         <h1>Expositions</h1>
         <table class="col-md-12">
+            <tr>
+                <th>Nom de l'exposition</th>
+                <th>Date de début</th>
+                <th>Date de fin</th>
+                <th>Artiste</th>
+                <th>Détails</th>
+            </tr>
             <tr *ngFor="let r of reservationEspaces">
                 <td>{{ r.nom }}</td>
                 <td>{{ r.dateDebut | date: 'dd/MM/yyyy'}}</td>
