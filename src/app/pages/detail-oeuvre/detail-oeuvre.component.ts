@@ -13,11 +13,13 @@ export class DetailOeuvreComponent implements OnInit {
   avis:any;
   id:number;
   afficheSignalement:boolean=false;
+  //role:any;
 
   constructor(private router:Router, private oeuvreService:OeuvreService, private avisService:AvisService, private route:ActivatedRoute) {
     this.id=this.route.snapshot.params['id'];
  }
   ngOnInit(): void {
+    //this.role=JSON.parse(sessionStorage.getItem('role'));
     this.oeuvreService.findById(this.id).subscribe(data => {this.oeuvre = data});
     this.findAvis();
   }
