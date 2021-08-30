@@ -9,6 +9,8 @@ import { AppService } from "src/app/app.service";
 export class AdminLayoutComponent implements OnInit {
   public sidebarColor: string = "red";
   role:string;
+  
+
 
   constructor(private appService : AppService) {}
   changeSidebarColor(color){
@@ -34,6 +36,7 @@ export class AdminLayoutComponent implements OnInit {
     }
   }
   ngOnInit() {
-    this.role = this.appService.role;
+    let currentUser = JSON.parse(sessionStorage.getItem('currentUser'));
+    this.role = currentUser["roles"][0]['libelle'];
   }
 }
