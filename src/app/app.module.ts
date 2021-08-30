@@ -20,6 +20,7 @@ import { InscriptionComponent } from './pages/inscription/inscription.component'
 import { Error404Component } from './pages/error404/error404.component';
 
 
+
 @Injectable()
 export class XhrInterceptor implements HttpInterceptor{
 

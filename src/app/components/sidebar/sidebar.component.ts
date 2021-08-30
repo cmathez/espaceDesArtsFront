@@ -61,11 +61,18 @@ export const ROUTES: RouteInfo[] = [
     class: "",
     condition: ""
   },
-  {
+  /*{
     path: "/typography",
     title: "Typography",
     rtlTitle: "طباعة",
-    icon: "icon-align-center",
+    icon: "icon-book-bookmark",
+    class: ""
+  },*/
+  {
+    path: "/reclamation",
+    title: "Réclamations",
+    rtlTitle: "طباعة",
+    icon: "icon-book-bookmark",
     class: "",
     condition: "admin"
   }

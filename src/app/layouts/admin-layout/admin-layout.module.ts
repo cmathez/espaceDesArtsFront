@@ -16,6 +16,12 @@ import { UserHomeComponent } from "../../pages/user-home/user-home.component";
 // import { RtlComponent } from "../../pages/rtl/rtl.component";
 
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
+import { ListeReclamationsComponent } from "src/app/pages/liste-reclamations/liste-reclamations.component";
+import { DetailOeuvreComponent } from "src/app/pages/detail-oeuvre/detail-oeuvre.component";
+import { ReservationDetailsComponent } from "src/app/pages/reservation-details/reservation-details.component";
+import { FormulaireAjoutAvisComponent } from "src/app/pages/formulaire-ajout-avis/formulaire-ajout-avis.component";
+import { FormulaireAjoutReclamationComponent } from "src/app/pages/formulaire-ajout-reclamation/formulaire-ajout-reclamation.component";
+import { FormulaireAjoutOeuvreComponent } from "src/app/pages/formulaire-ajout-oeuvre/formulaire-ajout-oeuvre.component";
 import { EspacesHomeComponent } from "src/app/pages/espaces-home/espaces-home.component";
 
 
@@ -36,7 +42,13 @@ import { EspacesHomeComponent } from "src/app/pages/espaces-home/espaces-home.co
     NotificationsComponent,
     MapComponent,
     UserHomeComponent,
-    EspacesHomeComponent
+    EspacesHomeComponent,
+    ListeReclamationsComponent,
+    DetailOeuvreComponent,
+    ReservationDetailsComponent,
+    FormulaireAjoutAvisComponent,
+    FormulaireAjoutReclamationComponent,
+    FormulaireAjoutOeuvreComponent
     // RtlComponent
   ]
 })
