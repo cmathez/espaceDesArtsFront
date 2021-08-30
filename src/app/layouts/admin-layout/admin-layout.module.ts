@@ -16,6 +16,9 @@ import { UserHomeComponent } from "../../pages/user-home/user-home.component";
 // import { RtlComponent } from "../../pages/rtl/rtl.component";
 
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
+import { EspaceExpositionComponent } from "src/app/pages/espace-exposition/espace-exposition.component";
+import { ReservationEspaceComponent } from "src/app/pages/reservation-espace/reservation-espace.component";
+import { EvenementComponent } from "src/app/pages/evenement/evenement.component";
 
 
 @NgModule({
@@ -35,6 +38,9 @@ import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
     NotificationsComponent,
     MapComponent,
     UserHomeComponent,
+    EspaceExpositionComponent,
+    ReservationEspaceComponent,
+    EvenementComponent,
     // RtlComponent
   ]
 })

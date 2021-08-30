@@ -17,11 +17,8 @@ import { EspacesHomeComponent } from './pages/espaces-home/espaces-home.componen
 import { AppService } from "./app.service";
 import { LoginComponent } from './pages/login/login.component';
 import { InscriptionComponent } from './pages/inscription/inscription.component';
-import { EspaceExpositionComponent } from './pages/espace-exposition/espace-exposition.component';
 import { EditEspaceExpositionComponent } from './pages/edit-espace-exposition/edit-espace-exposition.component';
-import { ReservationEspaceComponent } from './pages/reservation-espace/reservation-espace.component';
 import { EspaceExpositionArtisteComponent } from './pages/espace-exposition-artiste/espace-exposition-artiste.component';
-import { EvenementComponent } from './pages/evenement/evenement.component';
 
 
 @Injectable()
@@ -48,7 +45,7 @@ export class XhrInterceptor implements HttpInterceptor{
     ToastrModule.forRoot(),
     ReactiveFormsModule,
   ],
-  declarations: [AppComponent, AdminLayoutComponent, AuthLayoutComponent, EspacesHomeComponent, LoginComponent, InscriptionComponent, EspaceExpositionComponent, EditEspaceExpositionComponent, ReservationEspaceComponent, EspaceExpositionArtisteComponent, EvenementComponent],
+  declarations: [AppComponent, AdminLayoutComponent, AuthLayoutComponent, EspacesHomeComponent, LoginComponent, InscriptionComponent, EditEspaceExpositionComponent, EspaceExpositionArtisteComponent],
   providers: [
     AppService,
     {provide: HTTP_INTERCEPTORS,useClass: XhrInterceptor,multi:true} 

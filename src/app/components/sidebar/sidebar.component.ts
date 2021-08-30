@@ -17,7 +17,30 @@ export const ROUTES: RouteInfo[] = [
     class: "",
     condition: "admin"
   },
-  
+  {
+    path: "/espaceExposition",
+    title: "Espace d'exposition",
+    rtlTitle: "الرموز",
+    icon: "icon-bullet-list-67",
+    class: "",
+    condition: "proprio"
+  },
+  {
+    path: "/reservationEspace",
+    title: "Espaces réservés",
+    rtlTitle: "لوحة القيادة",
+    icon: "icon-notes",
+    class: "",
+    condition: "proprio"
+  },
+  {
+    path: "/evenement",
+    title: "Evenement",
+    rtlTitle: "لوحة القيادة",
+    icon: "icon-calendar-60",
+    class: "",
+    condition: "proprio"
+  },
   {
     path: "/icons",
     title: "Icons",
@@ -26,6 +49,7 @@ export const ROUTES: RouteInfo[] = [
     class: "",
     condition: "proprio"
   },
+ 
   {
     path: "/maps",
     title: "Maps",

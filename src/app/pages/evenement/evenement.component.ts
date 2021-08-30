@@ -11,6 +11,9 @@ import { EvenementService } from 'src/app/service/evenement.service';
 export class EvenementComponent implements OnInit {
   evenements: any = null;
   evenement: Evenement = new Evenement();
+  etatAjouterEvenement=false;
+  etatListeEvenement=true;
+  etatAssocierEvenement:boolean;
 
   constructor(private evenementService: EvenementService, private router: Router) { }
 
@@ -34,4 +37,20 @@ export class EvenementComponent implements OnInit {
    
   }
 
+  modifierEtatAjoutEvenement(){
+    this.etatListeEvenement = false;
+    this.etatAjouterEvenement = true;
+  }
+
+  modifierEtatListEvenement(){
+    this.etatListeEvenement = true;
+    this.etatAjouterEvenement = false;
+  }
+
+  modifierEtatAssocierEvenementFalse(){
+    this.etatAssocierEvenement = false;
+  }
+  modifierEtatAssocierEvenementTrue(){
+    this.etatAssocierEvenement = true;
+  }
 }

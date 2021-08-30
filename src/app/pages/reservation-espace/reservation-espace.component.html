@@ -1,9 +1,12 @@
-<h4>Id de l'artiste en recherche: {{idArtiste}}</h4>
-<input type="number" class="form-control" [(ngModel)]="idArtiste">
-
 <div class=" content">
   <div class=" row">
-    <div class=" col-md-12">
+    <!--
+    <h4>Id de l'artiste en recherche: {{idArtiste}}</h4>
+    <input type="number" class="form-control" [(ngModel)]="idArtiste">
+-->
+
+
+    <div class=" col-md-12" *ngIf="etatListeReservation==true">
       <div class=" card">
         <div class=" card-header">
           <h4 class=" card-title">Simple Table</h4>
@@ -18,9 +21,6 @@
                   <th>ID</th>
                   <th>date debut</th>
                   <th>date fin</th>
-                  <th>Id artiste</th>
-                  <th>Id espace exposition</th>
-                  <th>Id prop</th>
                   <th>Nom salle</th>
                   <th>Adresse</th>
                   <th>image</th>
@@ -31,34 +31,36 @@
               <tbody>
 
                 <tr *ngFor="let r of reservationEspaces">
-                  <td *ngIf="r.artiste.idUtilisateur==idArtiste || idArtiste==null ">{{r.idReservationEspace}}</td>
-                  <td *ngIf="r.artiste.idUtilisateur==idArtiste  || idArtiste==null ">{{r.dateDebut | date
+                  <!--(r.artiste.idUtilisateur==idArtiste || idArtiste==null)-->
+                  <td *ngIf="r.espaceExposition.idProprio==idProprio">{{r.idReservationEspace}}</td>
+                  <td *ngIf="r.espaceExposition.idProprio==idProprio">{{r.dateDebut | date
                     :'shortDate'}}</td>
-                  <td *ngIf="r.artiste.idUtilisateur==idArtiste || idArtiste==null ">{{r.dateFin | date :'shortDate'}}
+                  <td *ngIf="r.espaceExposition.idProprio==idProprio">{{r.dateFin | date :'shortDate'}}
                   </td>
-                  <td *ngIf="r.artiste.idUtilisateur==idArtiste || idArtiste==null ">{{r.artiste.idUtilisateur}}</td>
-                  <td *ngIf="r.artiste.idUtilisateur==idArtiste || idArtiste==null ">
-                    {{r.espaceExposition.idEspaceExposition}}</td>
-                  <td *ngIf="r.artiste.idUtilisateur==idArtiste || idArtiste==null ">{{r.proprio.idUtilisateur}}</td>
-                  <td *ngIf="r.artiste.idUtilisateur==idArtiste || idArtiste==null ">{{r.espaceExposition.nomSalle}}
+                  <td *ngIf="r.espaceExposition.idProprio==idProprio">{{r.espaceExposition.nomSalle}}
                   </td>
-                  <td>{{r.espaceExposition.adresse}}</td>
-                  <td *ngIf="r.artiste.idUtilisateur==idArtiste || idArtiste==null "><img
+                  <td *ngIf="r.espaceExposition.idProprio==idProprio">{{r.espaceExposition.adresse}}
+                  </td>
+                  <td *ngIf="r.espaceExposition.idProprio==idProprio"><img
                       src="data:image/jpeg;base64,{{r.espaceExposition.imageEspace}}" height="300px" width="300px"
-                      alt=""></td>
-                  <td *ngIf="r.artiste.idUtilisateur==idArtiste || idArtiste==null ">
+                      alt="">
+                  </td>
+                  <td *ngIf="r.espaceExposition.idProprio==idProprio">
 
 
 
-                    
 
 
 
-                    <button class=" btn btn-fill btn-primary">Evenement</button>
+
+                    <button class=" btn btn-fill btn-primary" (click)=setIdReservation(r.idReservationEspace)
+                      (click)=modifierEtatChoixEvenement()>Evenement</button>
                     <button class=" btn btn-fill btn-danger"
                       (click)="deleteReservationEspace(r.idReservationEspace)">Delete</button>
                   </td>
+
                 </tr>
+
                 <!--
                     <div *ngIf = "r.artiste.idUtilisateur==idArtiste">
                       <td>{{r.idReservationEspace}}</td>
@@ -80,9 +82,18 @@
         </div>
       </div>
     </div>
-  </div>
 
-  <!--
+    <div *ngIf="etatChoixEvenement==true">
+      <div class="col-sm-3">
+        <button class=" btn btn-fill btn-primary" type="submit" (click)="modifieretatListeReservation()">Annuler l'association d'un evenement
+          </button>
+      </div>
+      <h1>associer un evenement</h1>
+      <app-evenement [etatAssocierEvenement]=true ></app-evenement>
+    </div>
+
+
+    <!--
   <div class=" row">
     <div class=" col-md-8">
       <div class=" card">
@@ -117,4 +128,5 @@
 
   </div>
   -->
+  </div>
 </div>

@@ -11,13 +11,26 @@ export class ReservationEspaceComponent implements OnInit {
   reservationEspaces:any=null;
   reservationEspace:ReservationEspace = new ReservationEspace();
   idArtiste:number=null;
-  idProprio:number;
-
+ 
+  role:string;
+  idProprio:string;
+  idReservation:string;
+  etatChoixEvenement:boolean=false;
+  etatListeReservation:boolean=true;
   constructor(private reservationEspaceService: ReservationEspaceService) { }
 
   
   ngOnInit(): void {
     this.findAllReservationEspace();
+    
+    let currentUser = JSON.parse(sessionStorage.getItem('currentUser'));
+    this.role = currentUser["roles"][0]['libelle'];
+    console.log(currentUser);
+    if(this.role=="proprio"){
+      this.idProprio = String(currentUser["idUtilisateur"]);
+
+      console.log("id proprio  : " + this.idProprio);
+    }
   }
 
   findAllReservationEspace(){
@@ -36,5 +49,19 @@ export class ReservationEspaceComponent implements OnInit {
    
   }
 
+  setIdReservation(id:string){
+    this.idReservation = id;
+    console.log(this.idReservation);
+    
+  }
  
+  modifierEtatChoixEvenement(){
+    this.etatChoixEvenement=true;
+    this.etatListeReservation=false;
+  }
+  modifieretatListeReservation(){
+    this.etatChoixEvenement=false;
+    this.etatListeReservation=true;
+
+  }
 }
