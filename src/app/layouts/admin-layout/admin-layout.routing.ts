@@ -9,6 +9,9 @@ import { TablesComponent } from "../../pages/tables/tables.component";
 import { TypographyComponent } from "../../pages/typography/typography.component";
 import { UserHomeComponent } from "../../pages/user-home/user-home.component";
 import { LoginComponent } from "src/app/pages/login/login.component";
+import { EspaceExpositionComponent } from "src/app/pages/espace-exposition/espace-exposition.component";
+import { ReservationEspaceComponent } from "src/app/pages/reservation-espace/reservation-espace.component";
+import { EvenementComponent } from "src/app/pages/evenement/evenement.component";
 import { EspacesHomeComponent } from "src/app/pages/espaces-home/espaces-home.component";
 import { ListeReclamationsComponent } from "src/app/pages/liste-reclamations/liste-reclamations.component";
 import { ReservationDetailsComponent } from "src/app/pages/reservation-details/reservation-details.component";
@@ -25,6 +28,10 @@ export const AdminLayoutRoutes: Routes = [
   { path: "typography", component: TypographyComponent },
   { path: "user-home", component: UserHomeComponent },
   { path: "login", component: LoginComponent},
+  { path: "espaceExposition", component: EspaceExpositionComponent},
+  { path: "reservationEspace", component: ReservationEspaceComponent},
+  { path: "evenement", component: EvenementComponent},
+
   {path: "espaces-home" , component: EspacesHomeComponent},
   { path: "reclamation", component: ListeReclamationsComponent},
   { path: "exposition/:id", component: ReservationDetailsComponent},

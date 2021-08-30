@@ -1,15 +1,38 @@
 import { HttpClient, HttpRequest } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { ReservationEspace } from '../models/reservation-espace';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ReservationEspaceService {
 
-  private baseURL = "http://localhost:8080/gestionReservationEspace";
+  private baseURL = "http://localhost:8080/gestionReservationEspace/reservationEspace";
 
-  constructor(private httpClient:HttpClient) { }
+  constructor(private httpClient: HttpClient) { }
+
+  public findAllReservationEspace():Observable<any>{
+    return this.httpClient.get(this.baseURL);
+  }
+
+  public deleteReservationEspace(id:number):Observable<any>{
+    return this.httpClient.delete(this.baseURL+"/"+id);
+  }
+
+  public saveReservationEspace(reservationEspace:ReservationEspace){
+   return this.httpClient.post(this.baseURL,reservationEspace);
+
+ 
+  }
+
+  public findByAccepte():Observable<any> {
+    return this.httpClient.get(this.baseURL + "/expositions");
+  }
+  
+
+
+
 
   public findAll():Observable<any> {
     return this.httpClient.get(this.baseURL + "/reservationEspace");
@@ -19,9 +42,7 @@ export class ReservationEspaceService {
     return this.httpClient.get(this.baseURL + "/reservationEspace/" + id);
   }
 
-  public findByAccepte():Observable<any> {
-    return this.httpClient.get(this.baseURL + "/expositions");
-  }
+  
 
   public save(reservation:any): Observable<any> {
     const formData: FormData = new FormData();
@@ -33,4 +54,5 @@ export class ReservationEspaceService {
     const req = new HttpRequest('POST', this.baseURL + "/reservationEspace", formData, {reportProgress:true, responseType:'text'});
     return this.httpClient.request(req);
   }
+  
 }

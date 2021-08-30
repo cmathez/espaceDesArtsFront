@@ -1,0 +1,202 @@
+
+<div class=" content">
+ 
+  <br>
+  <br>
+
+  <div *ngIf="etatListeEspaceExposition==true">
+
+    <div class=" row">
+
+      <div class="col-sm-3">
+        <button class=" btn btn-fill btn-primary" type="submit" (click)="modifierEtatAjoutEspaceExposition()">Ajouter un
+          espace d'exposition</button>
+      </div>
+      <div class="col-sm-3">
+        <button class=" btn btn-fill btn-primary" type="submit" (click)="modifierEtatListeReservation()">Liste
+          reservations</button>
+      </div>
+      <div class="col-sm-3">
+        <div class="col">
+          <button class=" btn btn-fill btn-primary" type="submit" (click)="modifierEtatListeEvenement()">Liste
+            evenements</button>
+        </div>
+      </div>
+      <div class="col-sm-2">
+        <div class=" card">
+          <div class=" card-body">
+            <ngb-alert [type]="'info'" [dismissible]="false" *ngIf="!staticAlertAjoutClosed">
+              <button type="button" aria-hidden="true" class="close" data-dismiss="alert" aria-label="Close"
+                (click)="staticAlertAjoutClosed = true">
+                <i class="tim-icons icon-simple-remove"></i>
+              </button>
+              <span> {{staticAlertAjoutTitre}} à été ajouté ! </span>
+            </ngb-alert>
+            <ngb-alert [type]="'warning'" *ngIf="!staticAlertDeleteClosed" [dismissible]="false">
+              <button type="button" aria-hidden="true" class="close" data-dismiss="alert" aria-label="Close"
+                (click)="staticAlertDeleteClosed = true">
+                <i class="tim-icons icon-simple-remove"></i>
+              </button>
+              <span>
+                <b> Warning - </b> {{staticAlertDeleteTitre}} à été supprimé
+              </span>
+            </ngb-alert>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
+    <div class=" row">
+      <div class="col-sm-4">
+        <h4>Nom de la salle : {{nomSalle}}</h4>
+        <input type="text" class="form-control" [(ngModel)]="nomSalle">
+      </div>
+    </div>
+    <br>
+
+    <div class=" row">
+      <div class=" col-md-12">
+        <div class=" card">
+          <div class=" card-header">
+            <h4 class=" card-title">Liste des espaces d'expositions</h4>
+          </div>
+          <div class=" card-body">
+            <div class=" table-responsive">
+              <table class=" table tablesorter" id="">
+                <thead class=" text-primary">
+
+                  <tr>
+                    <th>Nom</th>
+                    <th>Superficie</th>
+                    <th>Adresse</th>
+                    <th>image</th>
+                    <th>Action</th>
+                  </tr>
+
+                </thead>
+                <tbody>
+
+                  <tr *ngFor="let e of espaceExpositions">
+
+
+                    <td *ngIf="(e.nomSalle==nomSalle || nomSalle=='') && e.idProprio==idProprio ">{{e.nomSalle}}</td>
+                    <td *ngIf="(e.nomSalle==nomSalle || nomSalle=='') && e.idProprio==idProprio ">{{e.superficie}}</td>
+                    <td *ngIf="(e.nomSalle==nomSalle || nomSalle=='') && e.idProprio==idProprio ">{{e.adresse}}</td>
+                    <td *ngIf="(e.nomSalle==nomSalle || nomSalle=='') && e.idProprio==idProprio "><img
+                        src="data:image/jpeg;base64,{{e.imageEspace}}" height="300px" width="300px" alt=""></td>
+                    <td>
+                      <div *ngIf="(e.nomSalle==nomSalle || nomSalle=='') && e.idProprio==idProprio ">
+                        <button class=" btn btn-fill btn-warning" (click)="editEspaceExposition(e)">Editer</button>
+                        <button class=" btn btn-fill btn-danger" (click)="deleteEspaceExposition(e.idEspaceExposition)"
+                          (click)="staticAlertDeleteTitre=e.nomSalle"
+                          (click)="staticAlertDeleteClosed=false">Delete</button>
+                      </div>
+                    </td>
+
+                  </tr>
+
+
+
+
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div *ngIf="etatAjoutEspaceExposition==true">
+
+    <div class=" row">
+      <div class="col">
+        <button class=" btn btn-fill btn-primary" type="submit" (click)="modifierEtatListeEspaceExposition()">Voir la
+          liste : espace d'exposition</button>
+      </div>
+    </div>
+
+    <div class=" content">
+      <div class=" row">
+        <div class=" col-md-8">
+          <div class=" card">
+            <div class=" card-header">
+              <h5 class=" title">Ajouter un espace exposition</h5>
+            </div>
+            <div class=" card-body">
+              <form>
+                
+                <div class=" row">
+                 
+                  <div class=" col-md-5 pr-md-1">
+                    <div class=" form-group">
+                      <label> Nom espace </label>
+                      <input class=" form-control" type="text" value="Creative Code Inc."
+                        [(ngModel)]="espaceExposition.nomSalle" name="nomSalle" />
+                    </div>
+                  </div>
+                  <div class=" col-md-3 px-md-1">
+                    <div class=" form-group">
+                      <label> Superficie </label>
+                      <input class=" form-control" type="number" [(ngModel)]="espaceExposition.superficie"
+                        name="superficie" />
+                    </div>
+                  </div>
+                  <div class=" col-md-4 pl-md-1">
+                    <div class=" form-group">
+                      <label for="exampleInputEmail1"> Adresse </label>
+                      <input class=" form-control" [(ngModel)]="espaceExposition.adresse" name="adresse" />
+                    </div>
+                  </div>
+
+                </div>
+                <div class=" row">
+                  <div class=" col-md-6 pr-md-1">
+
+                    <label> Image </label>
+                    <input class=" form-control" type="file" name="fileUForm" (change)="selectFile($event)" />
+                  </div>
+                </div>
+
+              </form>
+            </div>
+            <div class=" card-footer">
+              <button class=" btn btn-fill btn-success" (click)="saveEspaceExposition()"
+                (click)="staticAlertAjoutClosed = false" (click)="modifierEtatListeEspaceExposition()"
+                type="submit">Save</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="etatListeReservation==true">
+    <div class=" row">
+      <div class="col">
+        <button class=" btn btn-fill btn-primary" type="submit" (click)="modifierEtatListeEspaceExposition()">Voir la
+          liste : espace d'exposition</button>
+      </div>
+    </div>
+    <app-reservation-espace></app-reservation-espace>
+  </div>
+
+  <div *ngIf="etatListeEvenement==true">
+    <div class=" row">
+      <div class="col">
+        <button class=" btn btn-fill btn-primary" type="submit" (click)="modifierEtatListeEspaceExposition()">Voir la
+          liste : espace d'exposition</button>
+      </div>
+
+    </div>
+    <app-evenement></app-evenement>
+
+  </div>
+
+
+
+
+</div>

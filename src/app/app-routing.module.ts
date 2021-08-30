@@ -10,6 +10,7 @@ import { InscriptionComponent } from "./pages/inscription/inscription.component"
 import { Error404Component } from "./pages/error404/error404.component";
 import { ListeReclamationsComponent } from "./pages/liste-reclamations/liste-reclamations.component";
 
+
 const routes: Routes = [
 
   {

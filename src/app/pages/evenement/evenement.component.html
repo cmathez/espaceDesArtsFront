@@ -1,0 +1,113 @@
+<div class=" content">
+  <div class=" row">
+
+    <div class="col-sm-3" *ngIf="etatListeEvenement==true">
+      <button class=" btn btn-fill btn-primary" type="submit" (click)="modifierEtatAjoutEvenement()">Ajouter un
+        evenement</button>
+    </div>
+    <div class="col-sm-3" *ngIf="etatAjouterEvenement==true">
+      <button class=" btn btn-fill btn-primary" type="submit" (click)="modifierEtatListEvenement()">Liste
+        evenement</button>
+    </div>
+
+
+    <div class=" col-md-12" *ngIf="etatListeEvenement==true">
+      <div class=" card">
+        <div class=" card-header">
+          <h4 class=" card-title">Liste des evenements</h4>
+        </div>
+        <div class=" card-body">
+          <div class=" table-responsive">
+            <table class=" table tablesorter" id="">
+              <thead class=" text-primary">
+
+                <tr>
+                  <th>ID</th>
+                  <th>nom</th>
+                  <th>Date debut</th>
+                  <th>Date fin</th>
+                  <th>Description</th>
+                  <th>Action</th>
+                </tr>
+
+              </thead>
+              <tbody>
+                <tr *ngFor="let e of evenements">
+                  <td>{{e.idEvenement}}</td>
+                  <td>{{e.nomEvenement}}</td>
+                  <td>{{e.dateDebut | date :'shortDate'}}</td>
+                  <td>{{e.dateFin | date :'shortDate'}}</td>
+                  <td>{{e.description}}</td>
+
+                  <td>
+                    <div>
+                      <button class=" btn btn-fill btn-warning">Editer</button>
+                      <button class=" btn btn-fill btn-danger" (click)="deleteEvenement(e.idEvenement)">Delete</button>
+
+                      <!--(click)="staticAlertDeleteTitre=e.nomSalle"
+                            (click)="staticAlertDeleteClosed=false"-->
+                    </div>
+                  </td>
+
+                </tr>
+
+
+
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+
+
+  
+    <div class=" col-md-8" *ngIf="etatAjouterEvenement==true">
+      <div class=" card">
+        <div class=" card-header">
+          <h5 class=" title">Ajouter un evenement</h5>
+        </div>
+        <div class=" card-body">
+          <form>
+            <div class=" row">
+              <div class=" col-md-5 pr-md-1">
+                <div class=" form-group">
+                  <label> Nom evenement </label>
+                  <input class=" form-control" type="text" [(ngModel)]="evenement.nomEvenement" name="nomEvenement" />
+                </div>
+              </div>
+              <div class=" col-md-3 px-md-1">
+                <div class=" form-group">
+                  <label> Date debut </label>
+                  <input class=" form-control" type="date" [(ngModel)]="evenement.dateDebut" name="dateDebut" />
+                </div>
+              </div>
+              <div class=" col-md-3 pl-md-1">
+                <div class=" form-group">
+                  <label for="exampleInputEmail1"> Date fin </label>
+                  <input class=" form-control" type="date" [(ngModel)]="evenement.dateFin" name="dateFin" />
+                </div>
+              </div>
+              <div class=" col-md-5 pr-md-1">
+                <div class=" form-group">
+                  <label> Description </label>
+                  <input class=" form-control" type="text" [(ngModel)]="evenement.description" name="description" />
+                </div>
+              </div>
+            </div>
+
+
+          </form>
+        </div>
+        <div class=" card-footer">
+          <button class=" btn btn-fill btn-success" (click)="saveEvenement()" type="submit">Save</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+</div>

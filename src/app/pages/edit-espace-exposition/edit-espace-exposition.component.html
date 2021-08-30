@@ -1,0 +1,15 @@
+<h1>test</h1>
+
+<form [formGroup]="editForm">
+    <label>Id</label>
+    <input type="number" [(ngModel)]="espaceExposition.idEspaceExposition"  name="idEspaceExposition" formControlName="idEspaceExposition">
+    <label>Nom</label>
+    <input type="text" [(ngModel)]="espaceExposition.nomSalle"  name="nomSalle" formControlName="nomSalle">
+    <label>Superficie</label>
+    <input type="number" [(ngModel)]="espaceExposition.superficie"  name="superficie" formControlName="superficie">
+    <label>Adresse</label>
+    <input type="text" [(ngModel)]="espaceExposition.adresse"  name="adresse" formControlName="adresse">
+    <button (click)="updateEspaceExposition()" >Mettre à jour</button>
+
+</form>
+
