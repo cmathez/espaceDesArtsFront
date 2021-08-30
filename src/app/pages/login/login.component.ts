@@ -11,6 +11,7 @@ import { AppService } from 'src/app/app.service';
 export class LoginComponent implements OnInit {
   error=false;
   credentials = {username: '', password: ''}
+  role:string;
 
   constructor(private appService : AppService, private httpClient : HttpClient, private routeur : Router) { }
 
@@ -18,7 +19,15 @@ export class LoginComponent implements OnInit {
   }
 
   login(){
-    this.appService.authenticate(this.credentials, () => {this.routeur.navigateByUrl("/user-home")});
+    this.appService.authenticate(this.credentials, () => {
+    let currentUser = JSON.parse(sessionStorage.getItem('currentUser'));
+    this.role = currentUser["roles"][0]['libelle'];
+    if(this.role=='user'){
+      this.routeur.navigateByUrl("/user-home");
+    }else{
+      this.routeur.navigateByUrl("/dashboard");
+    }});
+      
     return false;
   }
 
