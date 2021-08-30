@@ -25,6 +25,7 @@ import { ReservationDetailsComponent } from "src/app/pages/reservation-details/r
 import { FormulaireAjoutAvisComponent } from "src/app/pages/formulaire-ajout-avis/formulaire-ajout-avis.component";
 import { FormulaireAjoutReclamationComponent } from "src/app/pages/formulaire-ajout-reclamation/formulaire-ajout-reclamation.component";
 import { FormulaireAjoutOeuvreComponent } from "src/app/pages/formulaire-ajout-oeuvre/formulaire-ajout-oeuvre.component";
+import { EspacesHomeComponent } from "src/app/pages/espaces-home/espaces-home.component";
 
 
 @NgModule({
@@ -47,6 +48,7 @@ import { FormulaireAjoutOeuvreComponent } from "src/app/pages/formulaire-ajout-o
     EspaceExpositionComponent,
     ReservationEspaceComponent,
     EvenementComponent,
+    EspacesHomeComponent,
     ListeReclamationsComponent,
     DetailOeuvreComponent,
     ReservationDetailsComponent,

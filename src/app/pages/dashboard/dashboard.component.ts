@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { Router } from "@angular/router";
 import Chart from 'chart.js';
 
 @Component({
@@ -15,9 +16,14 @@ export class DashboardComponent implements OnInit {
   public clicked1: boolean = false;
   public clicked2: boolean = false;
 
-  constructor() {}
+  constructor(private routeur:Router) {}
 
   ngOnInit() {
+    let role = sessionStorage.getItem('role');
+    if(role!= 'admin'){
+      this.routeur.navigateByUrl("/error404");
+    }
+
     var gradientChartOptionsConfigurationWithTooltipBlue: any = {
       maintainAspectRatio: false,
       legend: {

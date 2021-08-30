@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { Router } from "@angular/router";
 import { AppService } from "src/app/app.service";
 
 @Component({
@@ -12,7 +13,7 @@ export class AdminLayoutComponent implements OnInit {
   
 
 
-  constructor(private appService : AppService) {}
+  constructor(private appService : AppService, private routeur:Router) {}
   changeSidebarColor(color){
     var sidebar = document.getElementsByClassName('sidebar')[0];
     var mainPanel = document.getElementsByClassName('main-panel')[0];
@@ -37,6 +38,12 @@ export class AdminLayoutComponent implements OnInit {
   }
   ngOnInit() {
     let currentUser = JSON.parse(sessionStorage.getItem('currentUser'));
+    console.log(currentUser);
+    if(currentUser==null){
+      this.routeur.navigateByUrl("/login");
+    }
     this.role = currentUser["roles"][0]['libelle'];
-  }
+
+  
+}
 }

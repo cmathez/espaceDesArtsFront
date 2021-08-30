@@ -41,6 +41,9 @@ export const ROUTES: RouteInfo[] = [
     class: "",
     condition: "proprio"
   },
+
+  
+  
   {
     path: "/icons",
     title: "Icons",
@@ -73,7 +76,7 @@ export const ROUTES: RouteInfo[] = [
     rtlTitle: "ملف تعريفي للمستخدم",
     icon: "icon-single-02",
     class: "",
-    condition: ""
+    condition: "admin"
   },
   {
     path: "/tables",

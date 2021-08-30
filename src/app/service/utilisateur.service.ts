@@ -31,6 +31,7 @@ export class UtilisateurService {
 
   public save(file:File, utilisateur:Utilisateur): Observable<any> {
     const formData: FormData = new FormData();
+    console.log(utilisateur);
     formData.append('nom', utilisateur.nom);
     formData.append('prenom', utilisateur.prenom);
     formData.append('file', file);
@@ -38,6 +39,7 @@ export class UtilisateurService {
     formData.append('password', utilisateur.password);
     formData.append('mail', utilisateur.mail);
     formData.append('dateNaissance', utilisateur.dateNaissance);
+    formData.append('idRole', utilisateur.roles.idRole);
     const req = new HttpRequest('POST', this.baseURL, formData, {reportProgress:true, responseType:'text'});
     return this.httpClient.request(req);
   }
