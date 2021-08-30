@@ -6,7 +6,7 @@
   <div *ngIf="etatListeEspaceExposition==true">
 
     <div class=" row">
-      
+
       <div class="col-sm-3">
         <button class=" btn btn-fill btn-primary" type="submit" (click)="modifierEtatAjoutEspaceExposition()">Ajouter un
           espace d'exposition</button>
@@ -67,7 +67,6 @@
                 <thead class=" text-primary">
 
                   <tr>
-                    <th>ID</th>
                     <th>Nom</th>
                     <th>Superficie</th>
                     <th>Adresse</th>
@@ -81,14 +80,13 @@
                   <tr *ngFor="let e of espaceExpositions">
 
 
-                    <td *ngIf="e.nomSalle==nomSalle || nomSalle=='' ">{{e.idEspaceExposition}}</td>
-                    <td *ngIf="e.nomSalle==nomSalle || nomSalle=='' ">{{e.nomSalle}}</td>
-                    <td *ngIf="e.nomSalle==nomSalle || nomSalle=='' ">{{e.superficie}}</td>
-                    <td *ngIf="e.nomSalle==nomSalle || nomSalle=='' ">{{e.adresse}}</td>
-                    <td *ngIf="e.nomSalle==nomSalle || nomSalle=='' "><img
+                    <td *ngIf="(e.nomSalle==nomSalle || nomSalle=='') && e.idProprio==idProprio ">{{e.nomSalle}}</td>
+                    <td *ngIf="(e.nomSalle==nomSalle || nomSalle=='') && e.idProprio==idProprio ">{{e.superficie}}</td>
+                    <td *ngIf="(e.nomSalle==nomSalle || nomSalle=='') && e.idProprio==idProprio ">{{e.adresse}}</td>
+                    <td *ngIf="(e.nomSalle==nomSalle || nomSalle=='') && e.idProprio==idProprio "><img
                         src="data:image/jpeg;base64,{{e.imageEspace}}" height="300px" width="300px" alt=""></td>
                     <td>
-                      <div *ngIf="e.nomSalle==nomSalle || nomSalle=='' ">
+                      <div *ngIf="(e.nomSalle==nomSalle || nomSalle=='') && e.idProprio==idProprio ">
                         <button class=" btn btn-fill btn-warning" (click)="editEspaceExposition(e)">Editer</button>
                         <button class=" btn btn-fill btn-danger" (click)="deleteEspaceExposition(e.idEspaceExposition)"
                           (click)="staticAlertDeleteTitre=e.nomSalle"
@@ -129,12 +127,14 @@
             </div>
             <div class=" card-body">
               <form>
+                
                 <div class=" row">
+                 
                   <div class=" col-md-5 pr-md-1">
                     <div class=" form-group">
                       <label> Nom espace </label>
                       <input class=" form-control" type="text" value="Creative Code Inc."
-                        [(ngModel)]="espaceExposition.nomSalle" [(ngModel)]="staticAlertAjoutTitre" name="nomSalle" />
+                        [(ngModel)]="espaceExposition.nomSalle" name="nomSalle" />
                     </div>
                   </div>
                   <div class=" col-md-3 px-md-1">

@@ -42,7 +42,7 @@
                   <td *ngIf="r.artiste.idUtilisateur==idArtiste || idArtiste==null ">{{r.proprio.idUtilisateur}}</td>
                   <td *ngIf="r.artiste.idUtilisateur==idArtiste || idArtiste==null ">{{r.espaceExposition.nomSalle}}
                   </td>
-                  <td *ngIf="r.artiste.idUtilisateur==idArtiste || idArtiste==null ">{{r.espaceExposition.adresse}}</td>
+                  <td>{{r.espaceExposition.adresse}}</td>
                   <td *ngIf="r.artiste.idUtilisateur==idArtiste || idArtiste==null "><img
                       src="data:image/jpeg;base64,{{r.espaceExposition.imageEspace}}" height="300px" width="300px"
                       alt=""></td>

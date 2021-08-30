@@ -30,6 +30,7 @@ export class EspaceExpositionService {
    formData.append('superficie',espaceExposition.superficie)
    formData.append('adresse',espaceExposition.adresse)
    formData.append('file',file)
+   formData.append('idProprio',espaceExposition.idProprio)
 
    const req = new HttpRequest('POST', this.baseURL,formData,{reportProgress:true,responseType:'text'})
     return this.httpClient.request(req);

@@ -3,5 +3,6 @@ export class EspaceExposition {
     nomSalle:string;
     superficie:string;
     adresse:string;
+    idProprio:string;
     file:File;
 }

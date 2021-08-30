@@ -21,7 +21,7 @@ export class ReservationEspaceComponent implements OnInit {
   }
 
   findAllReservationEspace(){
-    this.reservationEspaceService.findAllReservationEspace().subscribe(data=>{this.reservationEspaces = data;  console.log(data[0].espaceExposition)});
+    this.reservationEspaceService.findAllReservationEspace().subscribe(data=>{this.reservationEspaces = data;  console.log(data)});
     
   }
 

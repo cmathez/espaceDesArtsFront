@@ -24,12 +24,27 @@ export class EspaceExpositionComponent implements OnInit {
   staticAlertDeleteTitre: string = "";
   etatListeReservation: boolean = false;
 
+  role:string;
+  idProprio:string;
+
   constructor(private espaceExpositionService: EspaceExpositionService, private router: Router) { }
 
 
 
   ngOnInit(): void {
     this.findAllEspaceExposition();
+    let currentUser = JSON.parse(sessionStorage.getItem('currentUser'));
+    this.role = currentUser["roles"][0]['libelle'];
+    console.log(currentUser);
+    if(this.role=="proprio"){
+      this.idProprio = String(currentUser["idUtilisateur"]);
+
+      console.log("id proprio  : " + this.idProprio);
+    }
+  
+    
+
+
   }
 
   modifierEtatAjoutEspaceExposition() {
@@ -75,10 +90,14 @@ export class EspaceExpositionComponent implements OnInit {
   saveEspaceExposition() {
 
     this.currentFileUpload = this.selectedFiles.item(0);
+    this.espaceExposition.idProprio = this.idProprio;
+    console.log(this.espaceExposition);
+    
     this.espaceExpositionService.saveEspaceExposition(this.currentFileUpload, this.espaceExposition).subscribe(() => {
       this.findAllEspaceExposition(); this.espaceExposition = new EspaceExposition(); this.selectedFiles = undefined
     })
-
+    
+    
   }
 
   editEspaceExposition(espaceExposition: EspaceExposition) {
