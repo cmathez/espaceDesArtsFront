@@ -16,6 +16,7 @@ import { UserHomeComponent } from "../../pages/user-home/user-home.component";
 // import { RtlComponent } from "../../pages/rtl/rtl.component";
 
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
+import { EspacesHomeComponent } from "src/app/pages/espaces-home/espaces-home.component";
 
 
 @NgModule({
@@ -35,6 +36,7 @@ import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
     NotificationsComponent,
     MapComponent,
     UserHomeComponent,
+    EspacesHomeComponent
     // RtlComponent
   ]
 })

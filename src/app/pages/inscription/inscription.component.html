@@ -1,18 +1,91 @@
-<form>
-    <div>
-        <label for="username">Nom d'utilisateur :</label><br/><input type="text" name="username" [(ngModel)]="utilisateur.username" />
+<div class=" content">
+    <div class=" row">
+        <div class=" col-md-8">
+            <div class=" card">
+                <div class=" card-header">
+                    <h5 class=" title">Formulaire d'inscription</h5>
+                </div>
+                <div class=" card-body">
+                    <form>
+                        <div class=" row">
+                            <div class=" col-md-6 pr-md-1">
+                                <div class=" form-group">
+                                    <label for="nom"> Nom :</label>
+                                    <input type="text" name="nom" [(ngModel)]="utilisateur.nom" />
+                                </div>
+                            </div>
+                            <div class=" col-md-6 pl-md-1">
+                                <div class=" form-group">
+                                    <label for="prenom"> Prénom :</label>
+                                    <input type="text" name="prenom" [(ngModel)]="utilisateur.prenom" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class=" row">
+                            <div class=" col-md-6 pr-md-1">
+                                <div class=" form-group">
+                                    <label for="mail"> Mail :</label>
+                                    <input name="mail" [(ngModel)]="utilisateur.mail" placeholder="mike@email.com" type="text" />
+                                </div>
+                            </div>
+                            <div class=" col-md-6 pl-md-1">
+                                <div class=" form-group">
+                                    <label for="dateNaissance"> Date de Naissance :</label>
+                                    <input name="dateNaissance" [(ngModel)]="utilisateur.dateNaissance" type="date" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class=" row">
+                            <div class=" col-md-6 pr-md-1">
+                                <div class=" form-group">
+                                    <label for="username"> Username :</label>
+                                    <input name="username" [(ngModel)]="utilisateur.username" type="text" />
+                                </div>
+                            </div>
+                            <div class=" col-md-6 pl-md-1">
+                                <div class=" form-group">
+                                    <label for="password"> Password : </label>
+                                    <input name="password" [(ngModel)]="utilisateur.password" type="password" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class=" row">
+                            <div class=" col-md-6 pr-md-1">
+                                <div>
+                                    <label for="role"> Role : </label>
+                                    <div>
+                                        <input value=4 name="role" [(ngModel)]="utilisateur.roles.idRole" type="radio" checked />
+                                        <label for="user">  user</label>
+                                    </div>
+                                    <div>
+                                        <input value=3 name="role" [(ngModel)]="utilisateur.roles.idRole" type="radio" />
+                                        <label for="artiste">  artiste</label>
+                                    </div>
+
+                                    <div>
+                                        <input value=2 name="role" [(ngModel)]="utilisateur.roles.idRole" type="radio" />
+                                        <label for="proprio">  propriétaire</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class=" col-md-6 pl-md-1">
+                                <div>
+                                    <label for="fileUForm"> Photo :</label><br/>
+                                    <input type="file" name="fileUForm" (change)="selectFile($event)" />
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class=" card-footer">
+                    <button class=" btn btn-fill btn-danger" type="submit" (click)="saveUtilisateur()">S'inscrire</button>
+                </div>
+            </div>
+        </div>
+
+
     </div>
-    <div>
-        <label for="nom">Nom :</label><br/><input type="text" name="nom" [(ngModel)]="utilisateur.nom" /></div>
-    <div>
-        <label for="prenom">Prénom :</label><br/><input type="text" name="prenom" [(ngModel)]="utilisateur.prenom" /></div>
-    <div>
-        <label for="mail">Adresse e-mail :</label><br/><input type="text" name="mail" [(ngModel)]="utilisateur.mail" /></div>
-    <div>
-        <label for="password">Mot de passe :</label><br/><input type="text" name="password" [(ngModel)]="utilisateur.password" /></div>
-    <div>
-        <label for="dateNaissance">Date de naissance :</label><br/><input type="date" name="dateNaissance" [(ngModel)]="utilisateur.dateNaissance" /></div>
-    <div><label for="fileUForm">Image de profil :</label><br/>
-        <input type="file" name="fileUForm" (change)="selectFile($event)" /></div>
-    <button (click)="saveUtilisateur()">S'inscrire</button>
-</form>
+</div>

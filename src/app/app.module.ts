@@ -17,6 +17,7 @@ import { EspacesHomeComponent } from './pages/espaces-home/espaces-home.componen
 import { AppService } from "./app.service";
 import { LoginComponent } from './pages/login/login.component';
 import { InscriptionComponent } from './pages/inscription/inscription.component';
+import { Error404Component } from './pages/error404/error404.component';
 
 
 @Injectable()
@@ -42,7 +43,7 @@ export class XhrInterceptor implements HttpInterceptor{
     AppRoutingModule,
     ToastrModule.forRoot()
   ],
-  declarations: [AppComponent, AdminLayoutComponent, AuthLayoutComponent, EspacesHomeComponent, LoginComponent, InscriptionComponent],
+  declarations: [AppComponent, AdminLayoutComponent, AuthLayoutComponent, LoginComponent, InscriptionComponent, Error404Component],
   providers: [
     AppService,
     {provide: HTTP_INTERCEPTORS,useClass: XhrInterceptor,multi:true} 

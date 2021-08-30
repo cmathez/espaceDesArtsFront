@@ -12,10 +12,21 @@ export class LoginComponent implements OnInit {
   error=false;
   credentials = {username: '', password: ''}
   role:string;
+  currentUser = JSON.parse(sessionStorage.getItem('currentUser'));
 
   constructor(private appService : AppService, private httpClient : HttpClient, private routeur : Router) { }
 
   ngOnInit(): void {
+    let currentUser = JSON.parse(sessionStorage.getItem('currentUser'));
+    if(currentUser!=null){
+      this.role = currentUser["roles"][0]['libelle'];
+      if(this.role=='user'){
+        this.routeur.navigateByUrl("/user-home");
+      }else{
+        this.routeur.navigateByUrl("/dashboard");
+      }
+
+    }
   }
 
   login(){

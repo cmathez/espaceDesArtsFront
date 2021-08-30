@@ -22,6 +22,8 @@ export class NavbarComponent implements OnInit, OnDestroy {
   public isCollapsed = true;
 
   closeResult: string;
+  currentUser = JSON.parse(sessionStorage.getItem('currentUser'));
+  photo = this.currentUser['photoProfil']
 
   constructor(
     private appService: AppService,
@@ -46,6 +48,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
      }
    };
   ngOnInit() {
+
     window.addEventListener("resize", this.updateColor);
     this.listTitles = ROUTES.filter(listTitle => listTitle);
     const navbar: HTMLElement = this.element.nativeElement;

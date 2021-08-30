@@ -9,7 +9,14 @@ import { UtilisateurService } from 'src/app/service/utilisateur.service';
 })
 export class InscriptionComponent implements OnInit {
 
-  utilisateur:Utilisateur = new Utilisateur();
+  utilisateur:any = {
+    dateNaissance:"",
+    mail:"",nom:"",
+    prenom:"",
+    password:"",
+    username:"",
+    roles: {idRole:0},}
+
   selectedFile:any;
   currentFileUpload:any;
 
@@ -25,7 +32,13 @@ export class InscriptionComponent implements OnInit {
   saveUtilisateur() {
     this.currentFileUpload = this.selectedFile.item(0);
 
-    this.utilisateurService.save(this.currentFileUpload, this.utilisateur).subscribe(() => {this.utilisateur = new Utilisateur()});
+    this.utilisateurService.save(this.currentFileUpload, this.utilisateur).subscribe(() => {this.utilisateur = {
+      dateNaissance:"",
+      mail:"",nom:"",
+      prenom:"",
+      password:"",
+      username:"",
+      roles: {idRole:0},}});
   }
 
 }

@@ -34,6 +34,7 @@ export class AppService {
         this.role = response['roles'][0]['libelle']
         console.log(this.role);
        sessionStorage.setItem('currentUser', JSON.stringify(response));
+       sessionStorage.setItem('role', this.role);
 
         
       
