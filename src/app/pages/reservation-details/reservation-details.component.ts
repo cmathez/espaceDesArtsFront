@@ -13,6 +13,8 @@ export class ReservationDetailsComponent implements OnInit {
   id:any;
   reservation:any;
   oeuvres:any;
+  currentUser:any;
+  idCurrentUser:any;
 
   constructor(private route:ActivatedRoute,
               private reservationEspaceService:ReservationEspaceService,
@@ -21,9 +23,19 @@ export class ReservationDetailsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.currentUser = JSON.parse(sessionStorage.getItem('currentUser'));
+    this.idCurrentUser = this.currentUser['idUtilisateur'];
+    this.findAll();
+  }
+
+  findAll() {
     this.reservationEspaceService.findById(this.id).subscribe(data => {
       this.reservation = data;
       this.oeuvreService.findByEspaceExposition(this.reservation.espaceExposition.idEspaceExposition).subscribe (data => {this.oeuvres = data});
     });
+  }
+
+  deleteOeuvre(idOeuvre:any) {
+    this.oeuvreService.delete(idOeuvre).subscribe(() => { this.findAll()});
   }
 }

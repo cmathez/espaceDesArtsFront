@@ -1,0 +1,37 @@
+<div class=" content">
+    <div class=" row">
+        <div class=" col-md-12">
+            <div class=" card card-plain">
+                <div class=" card-header">
+                    <h4 class=" card-title">Liste utilisateurs</h4>
+                </div>
+                <div class=" card-body">
+                    <div class=" table-responsive">
+                        <table class=" table tablesorter" id="">
+                            <thead class=" text-primary">
+                                <tr>
+                                    <th>Nom d'utilisateur</th>
+                                    <th>Prénom</th>
+                                    <th>Nom</th>
+                                    <th>Date d'inscription</th>
+                                    <th>Roles</th>
+                                    <th class=" text-center">Supprimer</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let u of utilisateurs">
+                                    <td>{{u.username}}</td>
+                                    <td>{{u.prenom}}</td>
+                                    <td>{{u.nom}}</td>
+                                    <td>{{u.dateInscription | date:'dd/MM/yyyy'}}</td>
+                                    <td><span *ngFor="let r of u.roles">{{r.libelle}}</span></td>
+                                    <td class="text-center"><button class="btn btn-danger" (click)="delete(u.idUtilisateur)">Supprimer</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

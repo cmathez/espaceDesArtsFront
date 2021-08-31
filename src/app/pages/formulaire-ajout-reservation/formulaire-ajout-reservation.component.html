@@ -1,0 +1,13 @@
+<form>
+    <div class="form-group">
+        <label for="nom">Nom de l'exposition :</label><br/><input type="text" class="form-control" name="nom" [(ngModel)]="reservation.nom" />
+    </div>
+    <div>
+        <label for="dateDebut">Date de début :</label><br/><input type="date" class="form-control" name="dateDebut" [(ngModel)]="reservation.dateDebut" />
+    </div>
+    <div>
+        <label for="dateFin">Date de fin :</label><br/><input class="form-control" type="date" name="dateFin" [(ngModel)]="reservation.dateFin" />
+    </div>
+
+    <button class="btn btn-danger" (click)="saveReservation()">Envoyer demande</button>
+</form>

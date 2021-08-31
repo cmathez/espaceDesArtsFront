@@ -95,12 +95,28 @@ export const ROUTES: RouteInfo[] = [
   },
 
   {
-    path: "/user",
-    title: "User Profile",
+    path: "/utilisateur",
+    title: "Utilisateurs",
     rtlTitle: "ملف تعريفي للمستخدم",
     icon: "icon-single-02",
     class: "",
     condition: "admin"
+  },
+  {
+    path: "/expositionArtiste",
+    title: "Mes expositions",
+    rtlTitle: "ملف تعريفي للمستخدم",
+    icon: "icon-single-02",
+    class: "",
+    condition: "artiste"
+  },
+  {
+    path: "/espaceExpositionArtiste",
+    title: "Espaces d'Exposition",
+    rtlTitle: "ملف تعريفي للمستخدم",
+    icon: "icon-single-02",
+    class: "",
+    condition: "artiste"
   },
   {
     path: "/tables",
