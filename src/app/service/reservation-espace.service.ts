@@ -31,7 +31,9 @@ export class ReservationEspaceService {
   }
   
 
-
+  public findByAccepteAndIdArtiste(idArtiste:any):Observable<any> {
+    return this.httpClient.get(this.baseURL + "/expositions/" + idArtiste);
+  }
 
 
   public findAll():Observable<any> {

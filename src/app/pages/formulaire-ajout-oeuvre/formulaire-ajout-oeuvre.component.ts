@@ -32,6 +32,7 @@ export class FormulaireAjoutOeuvreComponent implements OnInit {
   saveOeuvre() {
     this.currentFileUpload = this.selectedFile.item(0);
     this.oeuvre.espaceExposition.idEspaceExposition = this.idEspaceExposition;
+    console.log(this.oeuvre);
     this.oeuvreService.save(this.currentFileUpload, this.oeuvre).subscribe(() => {this.oeuvre.nomOeuvre = "", this.oeuvre.description = "", this.oeuvre.prix = 0});
   }
 
