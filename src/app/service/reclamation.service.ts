@@ -24,4 +24,8 @@ export class ReclamationService {
     const req = new HttpRequest('POST', this.baseURL, formData, {reportProgress:true, responseType:'text'});
     return this.httpClient.request(req);
   }
+
+  delete(id:any): Observable<any> {
+    return this.httpClient.delete(this.baseURL + "/" + id);
+  }
 }

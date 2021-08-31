@@ -23,4 +23,8 @@ export class ListeReclamationsComponent implements OnInit {
       console.log(this.reclamations[0].motif);
       });
   }
+
+  delete(id:any) {
+    this.reclamationService.delete(id).subscribe(() => {this.findAll()});
+  }
 }
