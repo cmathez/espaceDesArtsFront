@@ -10,8 +10,16 @@ import { ReservationEspaceService } from 'src/app/service/reservation-espace.ser
 export class UserHomeComponent implements OnInit {
 
 
+  role:string;
+
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+
+    this.role = sessionStorage.getItem('role');
+
+  }
+
+
 }
 
