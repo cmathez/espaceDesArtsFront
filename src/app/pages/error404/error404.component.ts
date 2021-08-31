@@ -19,7 +19,7 @@ export class Error404Component implements OnInit {
     if(role=='user'){
       this.routeur.navigateByUrl("/user-home");
     }else{
-      this.routeur.navigateByUrl("/dashboard");
+      this.routeur.navigateByUrl("/page-acceuil");
     }
   }
 }

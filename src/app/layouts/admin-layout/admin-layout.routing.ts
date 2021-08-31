@@ -16,9 +16,11 @@ import { EspacesHomeComponent } from "src/app/pages/espaces-home/espaces-home.co
 import { ListeReclamationsComponent } from "src/app/pages/liste-reclamations/liste-reclamations.component";
 import { ReservationDetailsComponent } from "src/app/pages/reservation-details/reservation-details.component";
 import { DetailOeuvreComponent } from "src/app/pages/detail-oeuvre/detail-oeuvre.component";
+import { PageAcceuilComponent } from "src/app/pages/page-acceuil/page-acceuil.component";
 // import { RtlComponent } from "../../pages/rtl/rtl.component";
 
 export const AdminLayoutRoutes: Routes = [
+  { path: "page-acceuil", component: PageAcceuilComponent },
   { path: "dashboard", component: DashboardComponent },
   { path: "icons", component: IconsComponent },
   { path: "maps", component: MapComponent },

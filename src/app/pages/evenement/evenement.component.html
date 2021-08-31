@@ -27,6 +27,7 @@
                   <th>Date debut</th>
                   <th>Date fin</th>
                   <th>Description</th>
+                  <th>Reservation associée</th>
                   <th>Action</th>
                 </tr>
 
@@ -38,10 +39,11 @@
                   <td>{{e.dateDebut | date :'shortDate'}}</td>
                   <td>{{e.dateFin | date :'shortDate'}}</td>
                   <td>{{e.description}}</td>
+                  <td>{{e.reservationEspace.nom}}</td>
 
                   <td>
                     <div>
-                      <button class=" btn btn-fill btn-warning">Editer</button>
+                      <!--<button class=" btn btn-fill btn-warning">Editer</button>-->
                       <button class=" btn btn-fill btn-danger" (click)="deleteEvenement(e.idEvenement)">Delete</button>
 
                       <!--(click)="staticAlertDeleteTitre=e.nomSalle"
@@ -60,10 +62,10 @@
         </div>
       </div>
     </div>
-  
 
 
-  
+
+
     <div class=" col-md-8" *ngIf="etatAjouterEvenement==true">
       <div class=" card">
         <div class=" card-header">
@@ -96,7 +98,21 @@
                   <input class=" form-control" type="text" [(ngModel)]="evenement.description" name="description" />
                 </div>
               </div>
+
+              <!--
+              <div class=" col-md-5 pr-md-1">
+                <div class=" form-group">
+                  <label> id reservation </label>
+                  <input class=" form-control" [id]="idReservationEspace"  type="text" name="idReservationEspace" />
+                </div>
+              </div>-->
+
             </div>
+
+
+            <input type="text" class="form-control" [(ngModel)]="evenement.reservationEspace.idReservationEspace"
+              name="idReservationEspace">
+
 
 
           </form>

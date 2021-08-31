@@ -12,6 +12,7 @@
         <button class=" btn btn-fill btn-primary" type="submit" (click)="modifierEtatAjoutEspaceExposition()">Ajouter un
           espace d'exposition</button>
       </div>
+      <!--
       <div class="col-sm-3">
         <button class=" btn btn-fill btn-primary" type="submit" (click)="modifierEtatListeReservation()">Liste
           reservations</button>
@@ -21,8 +22,8 @@
           <button class=" btn btn-fill btn-primary" type="submit" (click)="modifierEtatListeEvenement()">Liste
             evenements</button>
         </div>
-      </div>
-      <div class="col-sm-2">
+      </div>-->
+      <div class="col-sm-6">
         <div class=" card">
           <div class=" card-body">
             <ngb-alert [type]="'info'" [dismissible]="false" *ngIf="!staticAlertAjoutClosed">
@@ -30,7 +31,7 @@
                 (click)="staticAlertAjoutClosed = true">
                 <i class="tim-icons icon-simple-remove"></i>
               </button>
-              <span> {{staticAlertAjoutTitre}} à été ajouté ! </span>
+              <span> {{staticAlertAjoutTitre}} a été ajouté ! </span>
             </ngb-alert>
             <ngb-alert [type]="'warning'" *ngIf="!staticAlertDeleteClosed" [dismissible]="false">
               <button type="button" aria-hidden="true" class="close" data-dismiss="alert" aria-label="Close"
@@ -88,7 +89,7 @@
                         src="data:image/jpeg;base64,{{e.imageEspace}}" height="300px" width="300px" alt=""></td>
                     <td>
                       <div *ngIf="(e.nomSalle==nomSalle || nomSalle=='') && e.idProprio==idProprio ">
-                        <button class=" btn btn-fill btn-warning" (click)="editEspaceExposition(e)">Editer</button>
+                        <!--<button class=" btn btn-fill btn-warning" (click)="editEspaceExposition(e)">Editer</button>-->
                         <button class=" btn btn-fill btn-danger" (click)="deleteEspaceExposition(e.idEspaceExposition)"
                           (click)="staticAlertDeleteTitre=e.nomSalle"
                           (click)="staticAlertDeleteClosed=false">Delete</button>
@@ -173,7 +174,7 @@
       </div>
     </div>
   </div>
-
+<!--
   <div *ngIf="etatListeReservation==true">
     <div class=" row">
       <div class="col">
@@ -196,7 +197,7 @@
 
   </div>
 
-
+-->
 
 
 </div>
