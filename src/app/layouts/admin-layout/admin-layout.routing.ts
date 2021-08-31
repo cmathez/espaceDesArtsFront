@@ -16,7 +16,9 @@ import { EspacesHomeComponent } from "src/app/pages/espaces-home/espaces-home.co
 import { ListeReclamationsComponent } from "src/app/pages/liste-reclamations/liste-reclamations.component";
 import { ReservationDetailsComponent } from "src/app/pages/reservation-details/reservation-details.component";
 import { DetailOeuvreComponent } from "src/app/pages/detail-oeuvre/detail-oeuvre.component";
-import { ListeUtilisateursComponent } from "src/app/liste-utilisateurs/liste-utilisateurs.component";
+import { ListeUtilisateursComponent } from "src/app/pages/liste-utilisateurs/liste-utilisateurs.component";
+import { ListeExpositionsArtisteComponent } from "src/app/pages/liste-expositions-artiste/liste-expositions-artiste.component";
+import { EspaceExpositionArtisteComponent } from "src/app/pages/espace-exposition-artiste/espace-exposition-artiste.component";
 // import { RtlComponent } from "../../pages/rtl/rtl.component";
 
 export const AdminLayoutRoutes: Routes = [
@@ -35,9 +37,11 @@ export const AdminLayoutRoutes: Routes = [
   { path: "reservation-details", component: ReservationDetailsComponent},
 
   { path: "utilisateur", component: ListeUtilisateursComponent},
-  {path: "espaces-home" , component: EspacesHomeComponent},
+  { path: "espaces-home" , component: EspacesHomeComponent},
   { path: "reclamation", component: ListeReclamationsComponent},
   { path: "exposition/:id", component: ReservationDetailsComponent},
-  { path: "oeuvre/:id", component: DetailOeuvreComponent}
+  { path: "oeuvre/:id", component: DetailOeuvreComponent},
+  { path: "expositionArtiste", component: ListeExpositionsArtisteComponent},
+  { path: "espaceExpositionArtiste", component: EspaceExpositionArtisteComponent}
   // { path: "rtl", component: RtlComponent }
 ];

@@ -27,7 +27,7 @@ export class EspaceExpositionArtisteComponent implements OnInit {
     this.espaceExpositionService.findAllEspaceExposition().subscribe(data=>{this.espaceExpositions = data})
   }
 
-  deleteEspaceExposition(id:number){
+  /*deleteEspaceExposition(id:number){
     this.espaceExpositionService.deleteEspaceExposition(id).subscribe(()=>{this.findAllEspaceExposition()})
   }
 
@@ -50,5 +50,5 @@ export class EspaceExpositionArtisteComponent implements OnInit {
 
   selectFile(event){
     this.selectedFiles=event.target.files;
-  }
+  }*/
 }

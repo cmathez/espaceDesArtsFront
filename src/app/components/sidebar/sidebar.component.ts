@@ -79,6 +79,22 @@ export const ROUTES: RouteInfo[] = [
     condition: "admin"
   },
   {
+    path: "/expositionArtiste",
+    title: "Mes expositions",
+    rtlTitle: "ملف تعريفي للمستخدم",
+    icon: "icon-single-02",
+    class: "",
+    condition: "artiste"
+  },
+  {
+    path: "/espaceExpositionArtiste",
+    title: "Espaces d'Exposition",
+    rtlTitle: "ملف تعريفي للمستخدم",
+    icon: "icon-single-02",
+    class: "",
+    condition: "artiste"
+  },
+  {
     path: "/tables",
     title: "Table List",
     rtlTitle: "قائمة الجدول",

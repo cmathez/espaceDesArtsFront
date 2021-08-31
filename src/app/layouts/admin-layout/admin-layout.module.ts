@@ -26,7 +26,10 @@ import { FormulaireAjoutAvisComponent } from "src/app/pages/formulaire-ajout-avi
 import { FormulaireAjoutReclamationComponent } from "src/app/pages/formulaire-ajout-reclamation/formulaire-ajout-reclamation.component";
 import { FormulaireAjoutOeuvreComponent } from "src/app/pages/formulaire-ajout-oeuvre/formulaire-ajout-oeuvre.component";
 import { EspacesHomeComponent } from "src/app/pages/espaces-home/espaces-home.component";
-import { ListeUtilisateursComponent } from "src/app/liste-utilisateurs/liste-utilisateurs.component";
+import { ListeUtilisateursComponent } from "src/app/pages/liste-utilisateurs/liste-utilisateurs.component";
+import { ListeExpositionsArtisteComponent } from "src/app/pages/liste-expositions-artiste/liste-expositions-artiste.component";
+import { EspaceExpositionArtisteComponent } from "src/app/pages/espace-exposition-artiste/espace-exposition-artiste.component";
+import { FormulaireAjoutReservationComponent } from "src/app/pages/formulaire-ajout-reservation/formulaire-ajout-reservation.component";
 
 
 @NgModule({
@@ -56,7 +59,10 @@ import { ListeUtilisateursComponent } from "src/app/liste-utilisateurs/liste-uti
     FormulaireAjoutAvisComponent,
     FormulaireAjoutReclamationComponent,
     FormulaireAjoutOeuvreComponent,
-    ListeUtilisateursComponent
+    ListeUtilisateursComponent,
+    ListeExpositionsArtisteComponent,
+    EspaceExpositionArtisteComponent,
+    FormulaireAjoutReservationComponent
     // RtlComponent
   ]
 })
