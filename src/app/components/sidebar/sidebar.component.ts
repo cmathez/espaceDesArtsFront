@@ -34,14 +34,6 @@ export const ROUTES: RouteInfo[] = [
     condition: "artiste"
   },
   {
-    path: "/dashboard",
-    title: "Dashboard",
-    rtlTitle: "لوحة القيادة",
-    icon: "icon-chart-pie-36",
-    class: "",
-    condition: "admin"
-  },
-  {
     path: "/espaceExposition",
     title: "Espace d'exposition",
     rtlTitle: "الرموز",

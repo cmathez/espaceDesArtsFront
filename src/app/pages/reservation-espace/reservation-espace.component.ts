@@ -46,7 +46,8 @@ export class ReservationEspaceComponent implements OnInit {
   }
 
   accepterReservation(id:number){
-    this.reservationEspaceService.update(id).subscribe(()=>{this.findAllReservationEspace()})}
+    this.reservationEspaceService.update(id).subscribe(()=>{this.findAllReservationEspace()});
+  }
   
 
   saveReservationEspace(){

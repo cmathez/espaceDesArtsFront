@@ -41,10 +41,8 @@ export class ReservationEspaceService {
   }
 
   public findById(id:any):Observable<any> {
-    return this.httpClient.get(this.baseURL + "/" + id); ///reservationEspace
+    return this.httpClient.get(this.baseURL + "/reservationEspace/" + id); ///reservationEspace
   }
-
-  
 
   public save(reservation:any): Observable<any> {
     const formData: FormData = new FormData();
@@ -68,7 +66,7 @@ export class ReservationEspaceService {
     formData.append('dateFin', reservation.dateFin);
     formData.append('idUtilisateur', reservation.artiste.idUtilisateur);
     formData.append('idEspaceExposition', reservation.espaceExposition.idEspaceExposition);*/
-    const req = new HttpRequest('PUT', this.baseURL + "/"+ id, reservationEspace, {reportProgress:true, responseType:'text'});
+    const req = new HttpRequest('PUT', this.baseURL + "/reservationEspace/"+ id, reservationEspace, {reportProgress:true, responseType:'text'});
     return this.httpClient.request(req);
     //return this.httpClient.put(this.baseURL+"/"+id);
 

@@ -37,7 +37,7 @@ export const AdminLayoutRoutes: Routes = [
   { path: "reservationEspace/:id", component: ReservationEspaceComponent},
   { path: "evenement", component: EvenementComponent},
   { path: "reservation-details", component: ReservationDetailsComponent},
-
+  { path: "reservationEspace", component: ReservationEspaceComponent},
   { path: "utilisateur", component: ListeUtilisateursComponent},
   { path: "espaces-home" , component: EspacesHomeComponent},
   { path: "reclamation", component: ListeReclamationsComponent},

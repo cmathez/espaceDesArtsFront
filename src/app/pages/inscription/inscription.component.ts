@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Utilisateur } from 'src/app/models/utilisateur';
 import { UtilisateurService } from 'src/app/service/utilisateur.service';
 
@@ -20,7 +21,7 @@ export class InscriptionComponent implements OnInit {
   selectedFile:any;
   currentFileUpload:any;
 
-  constructor(private utilisateurService:UtilisateurService) { }
+  constructor(private utilisateurService:UtilisateurService, private router:Router) { }
 
   ngOnInit(): void {
   }
@@ -39,6 +40,7 @@ export class InscriptionComponent implements OnInit {
       password:"",
       username:"",
       roles: {idRole:0},}});
+      this.router.navigateByUrl('/login');
   }
 
 }

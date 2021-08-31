@@ -1,5 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { ReservationEspaceService } from 'src/app/service/reservation-espace.service';
 
 @Component({
