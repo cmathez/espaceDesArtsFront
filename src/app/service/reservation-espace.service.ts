@@ -8,20 +8,20 @@ import { ReservationEspace } from '../models/reservation-espace';
 })
 export class ReservationEspaceService {
 
-  private baseURL = "http://localhost:8080/gestionReservationEspace/reservationEspace";
+  private baseURL = "http://localhost:8080/gestionReservationEspace";
 
   constructor(private httpClient: HttpClient) { }
 
   public findAllReservationEspace():Observable<any>{
-    return this.httpClient.get(this.baseURL);
+    return this.httpClient.get(this.baseURL + "/reservationEspace");
   }
 
   public deleteReservationEspace(id:number):Observable<any>{
-    return this.httpClient.delete(this.baseURL+"/"+id);
+    return this.httpClient.delete(this.baseURL+"/reservationEspace/"+id);
   }
 
   public saveReservationEspace(reservationEspace:ReservationEspace){
-   return this.httpClient.post(this.baseURL,reservationEspace);
+   return this.httpClient.post(this.baseURL + "/reservationEspace",reservationEspace);
 
  
   }
