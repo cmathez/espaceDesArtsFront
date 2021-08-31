@@ -1,4 +1,4 @@
-<div class="container">
+<!--<div class="container">
     <div class="row">
         <h1>Expositions</h1>
         <table class="col-md-12">
@@ -15,8 +15,22 @@
                 <td>{{ r.dateFin | date: 'dd/MM/yyyy'}}</td>
                 <td>{{ r.artiste.prenom }} {{ r.artiste.nom }}</td>
                 <td><a routerLink="../exposition/{{r.idReservationEspace}}">Détails</a></td>
-                <!--<a routerLink="{{r.idReservationEspace}}">Détails</a></td>-->
             </tr>
         </table>
     </div>
+</div>-->
+<div class="content">
+    <ngb-carousel>
+        <ng-template *ngFor="let r of reservationEspaces" ngbSlide>
+            <div class="picsum-img-wrapper">
+                <img src="data:image/jpeg;base64,{{ r.artiste.photoProfil }}" alt="Angular Carousel 1">
+            </div>
+            <div class="carousel-caption">
+                <h3 class="text-c">{{ r.nom }}</h3>
+                <p class="text-c"> Du {{ r.dateDebut | date: 'dd/MM/yyyy'}} au {{ r.dateFin | date: 'dd/MM/yyyy'}}</p>
+                <p class="text-c">Artiste : {{ r.artiste.prenom }} {{ r.artiste.nom }}</p>
+                <a class="text-c" routerLink="../exposition/{{r.idReservationEspace}}">Détails</a>
+            </div>
+        </ng-template>
+    </ngb-carousel>
 </div>
