@@ -33,9 +33,10 @@ export class EspaceExpositionComponent implements OnInit {
 
   ngOnInit(): void {
     this.findAllEspaceExposition();
+    
     let currentUser = JSON.parse(sessionStorage.getItem('currentUser'));
     this.role = currentUser["roles"][0]['libelle'];
-    console.log(currentUser);
+    //console.log(currentUser);
     if(this.role=="proprio"){
       this.idProprio = String(currentUser["idUtilisateur"]);
 

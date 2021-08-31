@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
       if(this.role=='user'){
         this.routeur.navigateByUrl("/user-home");
       }else{
-        this.routeur.navigateByUrl("/dashboard");
+        this.routeur.navigateByUrl("/page-acceuil");
       }
 
     }
@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
     if(this.role=='user'){
       this.routeur.navigateByUrl("/user-home");
     }else{
-      this.routeur.navigateByUrl("/dashboard");
+      this.routeur.navigateByUrl("/page-acceuil");
     }});
       
     return false;

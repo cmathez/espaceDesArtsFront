@@ -4,13 +4,18 @@
     <h4>Id de l'artiste en recherche: {{idArtiste}}</h4>
     <input type="number" class="form-control" [(ngModel)]="idArtiste">
 -->
+    <div *ngIf="etatListeEnAttenteConfirmation==false" class="col-sm-3">
+      <button class=" btn btn-fill btn-primary" type="submit" (click)="modifierEtatListeEnAttenteConfirmation()">En attente de confirmation</button>
+    </div>
+    <div *ngIf="etatListeEnAttenteConfirmation==true" class="col-sm-3">
+      <button class=" btn btn-fill btn-primary" type="submit" (click)="modifierEtatListeEnAttenteConfirmation()">Liste des reservations</button>
+    </div>
 
-
-    <div class=" col-md-12" *ngIf="etatListeReservation==true">
+    <div *ngIf="etatListeEnAttenteConfirmation==false" class=" col-md-12">
       <div class=" card">
         <div class=" card-header">
-          <h4 class=" card-title">Simple Table</h4>
-          <button class=" btn btn-fill btn-secondary" (click)="idArtiste=null">refresh</button>
+          <h4 class=" card-title">Liste des reservations </h4>
+          <!--<button class=" btn btn-fill btn-secondary" (click)="idArtiste=null">refresh</button>-->
         </div>
         <div class=" card-body">
           <div class=" table-responsive">
@@ -18,13 +23,15 @@
               <thead class=" text-primary">
 
                 <tr>
-                  <th>ID</th>
+                  <th>Id</th>
+                  <th>Nom artiste</th>
                   <th>date debut</th>
                   <th>date fin</th>
                   <th>Nom salle</th>
                   <th>Adresse</th>
                   <th>image</th>
                   <th>Action</th>
+
                 </tr>
 
               </thead>
@@ -32,31 +39,30 @@
 
                 <tr *ngFor="let r of reservationEspaces">
                   <!--(r.artiste.idUtilisateur==idArtiste || idArtiste==null)-->
-                  <td *ngIf="r.espaceExposition.idProprio==idProprio">{{r.idReservationEspace}}</td>
-                  <td *ngIf="r.espaceExposition.idProprio==idProprio">{{r.dateDebut | date
+                  <td *ngIf="r.espaceExposition.idProprio==idProprio && r.accepte==1">{{r.idReservationEspace}}</td>
+
+                  <td *ngIf="r.espaceExposition.idProprio==idProprio && r.accepte==1">{{r.artiste.nom}}</td>
+                  <td *ngIf="r.espaceExposition.idProprio==idProprio && r.accepte==1">{{r.dateDebut | date
                     :'shortDate'}}</td>
-                  <td *ngIf="r.espaceExposition.idProprio==idProprio">{{r.dateFin | date :'shortDate'}}
+                  <td *ngIf="r.espaceExposition.idProprio==idProprio && r.accepte==1">{{r.dateFin | date :'shortDate'}}
                   </td>
-                  <td *ngIf="r.espaceExposition.idProprio==idProprio">{{r.espaceExposition.nomSalle}}
+                  <td *ngIf="r.espaceExposition.idProprio==idProprio && r.accepte==1">{{r.espaceExposition.nomSalle}}
                   </td>
-                  <td *ngIf="r.espaceExposition.idProprio==idProprio">{{r.espaceExposition.adresse}}
+                  <td *ngIf="r.espaceExposition.idProprio==idProprio && r.accepte==1">{{r.espaceExposition.adresse}}
                   </td>
-                  <td *ngIf="r.espaceExposition.idProprio==idProprio"><img
+                  <td *ngIf="r.espaceExposition.idProprio==idProprio && r.accepte==1"><img
                       src="data:image/jpeg;base64,{{r.espaceExposition.imageEspace}}" height="300px" width="300px"
                       alt="">
                   </td>
-                  <td *ngIf="r.espaceExposition.idProprio==idProprio">
+                  <td *ngIf="r.espaceExposition.idProprio==idProprio && r.accepte==1">
 
 
 
-
-
-
-
-                    <button class=" btn btn-fill btn-primary" (click)=setIdReservation(r.idReservationEspace)
-                      (click)=modifierEtatChoixEvenement()>Evenement</button>
                     <button class=" btn btn-fill btn-danger"
                       (click)="deleteReservationEspace(r.idReservationEspace)">Delete</button>
+
+
+
                   </td>
 
                 </tr>
@@ -83,6 +89,75 @@
       </div>
     </div>
 
+    
+    <div *ngIf="etatListeEnAttenteConfirmation==true" class=" col-md-12">
+      <div class=" card">
+        <div class=" card-header">
+          <h4 class=" card-title">Liste des reservations en attente de confirmation</h4>
+          <!--<button class=" btn btn-fill btn-secondary" (click)="idArtiste=null">refresh</button>-->
+        </div>
+        <div class=" card-body">
+          <div class=" table-responsive">
+            <table class=" table tablesorter" id="">
+              <thead class=" text-primary">
+
+                <tr>
+                  <th>Id</th>
+                  <th>Nom artiste</th>
+                  <th>date debut</th>
+                  <th>date fin</th>
+                  <th>Nom salle</th>
+                  <th>Adresse</th>
+                  <th>image</th>
+                  <th>Action</th>
+
+                </tr>
+
+              </thead>
+              <tbody>
+
+                <tr *ngFor="let r of reservationEspaces">
+                  <!--(r.artiste.idUtilisateur==idArtiste || idArtiste==null)-->
+                  <td *ngIf="r.espaceExposition.idProprio==idProprio && r.accepte==0">{{r.idReservationEspace}}</td>
+
+                  <td *ngIf="r.espaceExposition.idProprio==idProprio && r.accepte==0">{{r.artiste.nom}}</td>
+                  <td *ngIf="r.espaceExposition.idProprio==idProprio && r.accepte==0">{{r.dateDebut | date
+                    :'shortDate'}}</td>
+                  <td *ngIf="r.espaceExposition.idProprio==idProprio && r.accepte==0">{{r.dateFin | date :'shortDate'}}
+                  </td>
+                  <td *ngIf="r.espaceExposition.idProprio==idProprio && r.accepte==0">{{r.espaceExposition.nomSalle}}
+                  </td>
+                  <td *ngIf="r.espaceExposition.idProprio==idProprio && r.accepte==0">{{r.espaceExposition.adresse}}
+                  </td>
+                  <td *ngIf="r.espaceExposition.idProprio==idProprio && r.accepte==0"><img
+                      src="data:image/jpeg;base64,{{r.espaceExposition.imageEspace}}" height="300px" width="300px"
+                      alt="">
+                  </td>
+                  <td *ngIf="r.espaceExposition.idProprio==idProprio && r.accepte==0">
+
+
+
+                    <button class=" btn btn-fill btn-danger"
+                      (click)="deleteReservationEspace(r.idReservationEspace)">Delete</button>
+                      
+                      <button (click)="accepterReservation(r.idReservationEspace)" class=" btn btn-fill btn-danger"
+                      >Accepter la demande</button>
+
+
+
+                  </td>
+
+                </tr>
+
+
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--
     <div *ngIf="etatChoixEvenement==true">
       <div class="col-sm-3">
         <button class=" btn btn-fill btn-primary" type="submit" (click)="modifieretatListeReservation()">Annuler l'association d'un evenement
@@ -91,7 +166,7 @@
       <h1>associer un evenement</h1>
       <app-evenement [etatAssocierEvenement]=true ></app-evenement>
     </div>
-
+-->
 
     <!--
   <div class=" row">
@@ -126,7 +201,7 @@
 
     </div>
 
-  </div>
-  -->
+  </div>-->
+
   </div>
 </div>

@@ -7,5 +7,6 @@ export class Evenement {
     dateFin:string;
     description:string;
     reservationEspace:ReservationEspace;
+    idReservationEspace:string;
 
 }
