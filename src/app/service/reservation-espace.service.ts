@@ -27,7 +27,7 @@ export class ReservationEspaceService {
   }
 
   public findByAccepte():Observable<any> {
-    return this.httpClient.get(this.baseURL + "/reservationEspace/expositions");
+    return this.httpClient.get(this.baseURL + "/expositions");
   }
   
 
