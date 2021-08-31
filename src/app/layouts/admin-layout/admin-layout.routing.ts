@@ -29,8 +29,9 @@ export const AdminLayoutRoutes: Routes = [
   { path: "user-home", component: UserHomeComponent },
   { path: "login", component: LoginComponent},
   { path: "espaceExposition", component: EspaceExpositionComponent},
-  { path: "reservationEspace", component: ReservationEspaceComponent},
+  { path: "reservationEspace/:id", component: ReservationEspaceComponent},
   { path: "evenement", component: EvenementComponent},
+  { path: "reservation-details", component: ReservationDetailsComponent},
 
   {path: "espaces-home" , component: EspacesHomeComponent},
   { path: "reclamation", component: ListeReclamationsComponent},

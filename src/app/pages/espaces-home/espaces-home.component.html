@@ -10,10 +10,10 @@
                         <img src="data:image/jpeg;base64,{{ r.artiste.photoProfil }}" alt="Angular Carousel 1">
                     </div>
                     <div class="carousel-caption">
-                        <h3>{{ r.nom }}</h3>
-                        <p> Du {{ r.dateDebut | date: 'dd/MM/yyyy'}} au {{ r.dateFin | date: 'dd/MM/yyyy'}}</p>
-                        <p>Artiste : {{ r.artiste.prenom }} {{ r.artiste.nom }}</p>
-                        <a routerLink="/reservation-details">Détails</a>
+                        <h3 class="text-c">{{ r.nom }}</h3>
+                        <p class="text-c"> Du {{ r.dateDebut | date: 'dd/MM/yyyy'}} au {{ r.dateFin | date: 'dd/MM/yyyy'}}</p>
+                        <p class="text-c">Artiste : {{ r.artiste.prenom }} {{ r.artiste.nom }}</p>
+                        <a class="text-c" routerLink="/reservation-details/{{r.idReservationEspace}}">Détails</a>
                     </div>
                 </ng-template>
             </ngb-carousel>
