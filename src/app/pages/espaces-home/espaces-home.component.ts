@@ -8,17 +8,17 @@ import { ReservationEspaceService } from 'src/app/service/reservation-espace.ser
 })
 export class EspacesHomeComponent implements OnInit {
   reservationEspaces:any;
-  role:string;
-
-  constructor(private reservationEspaceService:ReservationEspaceService) {}
+  constructor(private reservationEspaceService:ReservationEspaceService) { }
 
   ngOnInit(): void {
     this.findAll();
-    this.role = sessionStorage.getItem('role');
-
+    
   }
 
   findAll() {
-    this.reservationEspaceService.findByAccepte().subscribe(data => {this.reservationEspaces = data});
+    this.reservationEspaceService.findByAccepte().subscribe(data => {
+      this.reservationEspaces = data
+      console.log(this.reservationEspaces);
+    });
   }
 }

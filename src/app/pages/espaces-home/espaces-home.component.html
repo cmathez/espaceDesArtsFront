@@ -1,22 +1,24 @@
-<div class="container">
-    <div class="row">
-        <h1>Expositions</h1>
-        <table class="col-md-12">
-            <tr>
-                <th>Nom de l'exposition</th>
-                <th>Date de début</th>
-                <th>Date de fin</th>
-                <th>Artiste</th>
-                <th>Détails</th>
-            </tr>
-            <tr *ngFor="let r of reservationEspaces">
-                <td>{{ r.nom }}</td>
-                <td>{{ r.dateDebut | date: 'dd/MM/yyyy'}}</td>
-                <td>{{ r.dateFin | date: 'dd/MM/yyyy'}}</td>
-                <td>{{ r.artiste.prenom }} {{ r.artiste.nom }}</td>
-                <td><a routerLink="../exposition/{{r.idReservationEspace}}">Détails</a></td>
-                <!--<a routerLink="{{r.idReservationEspace}}">Détails</a></td>-->
-            </tr>
-        </table>
+<div class="content">
+    <div class="container">
+        <div class="row">
+            <h1>Expositions</h1>
+            <br>
+
+            <ngb-carousel>
+                <ng-template *ngFor="let r of reservationEspaces" ngbSlide>
+                    <div class="picsum-img-wrapper">
+                        <img src="data:image/jpeg;base64,{{ r.artiste.photoProfil }}" alt="Angular Carousel 1">
+                    </div>
+                    <div class="carousel-caption">
+                        <h3>{{ r.nom }}</h3>
+                        <p> Du {{ r.dateDebut | date: 'dd/MM/yyyy'}} au {{ r.dateFin | date: 'dd/MM/yyyy'}}</p>
+                        <p>Artiste : {{ r.artiste.prenom }} {{ r.artiste.nom }}</p>
+                        <a routerLink="/reservation-details">Détails</a>
+                    </div>
+                </ng-template>
+            </ngb-carousel>
+        </div>
     </div>
+
+
 </div>
